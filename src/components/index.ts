@@ -5,8 +5,8 @@
 // Layout
 export * from './layout';
 
+// Sections
+export * from './sections';
+
 // UI Components (se agregarán más adelante)
 // export * from './ui';
-
-// Sections (se agregarán más adelante)
-// export * from './sections';
