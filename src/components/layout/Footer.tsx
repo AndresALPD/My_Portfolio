@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { 
   FaGithub, 
   FaLinkedin, 
-  FaTwitter, 
-  FaInstagram,
+  FaTelegram,
+  FaPhone,
   FaHeart 
 } from 'react-icons/fa';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
@@ -15,8 +15,9 @@ import { personalInfo, socialLinks, navItems } from '@/data';
 const socialIcons: Record<string, React.ReactNode> = {
   FaGithub: <FaGithub size={20} />,
   FaLinkedin: <FaLinkedin size={20} />,
-  FaTwitter: <FaTwitter size={20} />,
-  FaInstagram: <FaInstagram size={20} />,
+  FaTelegram: <FaTelegram size={20} />,
+  HiMail: <HiMail size={20} />,
+  FaPhone: <FaPhone size={18} />,
 };
 
 export default function Footer() {

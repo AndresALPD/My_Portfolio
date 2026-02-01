@@ -38,16 +38,22 @@ export const socialLinks: SocialLink[] = [
     icon: 'FaLinkedin',
   },
   {
-    id: 'twitter',
-    name: 'Twitter',
-    url: 'https://twitter.com/tuusuario',
-    icon: 'FaTwitter',
+    id: 'telegram',
+    name: 'Telegram',
+    url: 'https://t.me/tuusuario',
+    icon: 'FaTelegram',
   },
   {
-    id: 'instagram',
-    name: 'Instagram',
-    url: 'https://instagram.com/tuusuario',
-    icon: 'FaInstagram',
+    id: 'email',
+    name: 'Email',
+    url: 'mailto:tu.email@ejemplo.com',
+    icon: 'HiMail',
+  },
+  {
+    id: 'phone',
+    name: 'Teléfono',
+    url: 'tel:+1234567890',
+    icon: 'FaPhone',
   },
 ];
 

@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 import { 
   FaGithub, 
   FaLinkedin, 
-  FaTwitter, 
+  FaTelegram,
+  FaPhone,
   FaDownload,
   FaArrowDown 
 } from 'react-icons/fa';
-import { HiSparkles } from 'react-icons/hi';
+import { HiSparkles, HiMail } from 'react-icons/hi';
 import { personalInfo, socialLinks } from '@/data';
 import { STAGGER_CONTAINER, FADE_IN_UP } from '@/lib/constants';
 import AnimatedBackground from './AnimatedBackground';
@@ -16,10 +17,11 @@ import TypeWriter from './TypeWriter';
 
 // Mapeo de iconos
 const socialIcons: Record<string, React.ReactNode> = {
-  FaGithub: <FaGithub size={22} />,
-  FaLinkedin: <FaLinkedin size={22} />,
-  FaTwitter: <FaTwitter size={22} />,
-  FaInstagram: <FaLinkedin size={22} />,
+  FaGithub: <FaGithub size={20} />,
+  FaLinkedin: <FaLinkedin size={20} />,
+  FaTelegram: <FaTelegram size={20} />,
+  HiMail: <HiMail size={20} />,
+  FaPhone: <FaPhone size={18} />,
 };
 
 export default function Hero() {
@@ -33,16 +35,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center"
     >
       {/* Fondo animado */}
-      <AnimatedBackground />
+      <div className="absolute inset-0 overflow-hidden">
+        <AnimatedBackground />
+      </div>
 
       {/* Gradiente overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white dark:from-gray-950/50 dark:via-transparent dark:to-gray-950 pointer-events-none" />
 
       {/* Contenido principal */}
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
         <motion.div
           variants={STAGGER_CONTAINER}
           initial="initial"
@@ -131,10 +135,10 @@ export default function Hero() {
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Ver Proyectos
                 <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
+                  animate={{ y: [0, 4, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
-                  →
+                  <FaArrowDown size={16} />
                 </motion.span>
               </span>
               {/* Hover effect */}
@@ -152,10 +156,10 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Redes Sociales */}
+          {/* Redes Sociales - Solo visible en móvil/tablet, oculto en desktop donde hay barra lateral */}
           <motion.div
             variants={FADE_IN_UP}
-            className="flex items-center justify-center gap-4"
+            className="flex items-center justify-center gap-4 lg:hidden"
           >
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Encuéntrame en:
@@ -181,29 +185,29 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-        >
-          <motion.button
-            onClick={() => scrollToSection('about')}
-            className="flex flex-col items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            aria-label="Scroll to next section"
-          >
-            <span className="text-xs font-medium">Scroll</span>
-            <FaArrowDown size={16} />
-          </motion.button>
-        </motion.div>
       </div>
 
-      {/* Decoración lateral */}
-      <div className="hidden lg:block absolute left-8 top-1/2 transform -translate-y-1/2">
+      {/* Scroll indicator - Posicionado fuera del contenedor principal */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5 }}
+      >
+        <motion.button
+          onClick={() => scrollToSection('about')}
+          className="flex flex-col items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          aria-label="Scroll to next section"
+        >
+          <span className="text-xs font-medium">Scroll</span>
+          <FaArrowDown size={16} />
+        </motion.button>
+      </motion.div>
+
+      {/* Decoración lateral - Barra de redes sociales */}
+      <div className="hidden lg:flex absolute left-4 xl:left-8 top-1/2 transform -translate-y-1/2 z-30">
         <motion.div
           className="flex flex-col gap-3"
           initial={{ opacity: 0, x: -20 }}
@@ -216,11 +220,11 @@ export default function Hero() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              whileHover={{ scale: 1.1, x: 5 }}
+              className="relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-lg text-gray-600 dark:text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+              whileHover={{ scale: 1.1, x: 5, transition: { type: 'spring', stiffness: 400, damping: 17 } }}
+              whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.3 + index * 0.1 }}
+              animate={{ opacity: 1, x: 0, transition: { delay: 1.3 + index * 0.1 } }}
             >
               {socialIcons[social.icon]}
             </motion.a>
