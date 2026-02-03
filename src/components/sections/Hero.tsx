@@ -12,7 +12,6 @@ import {
 import { HiSparkles, HiMail } from 'react-icons/hi';
 import { personalInfo, socialLinks } from '@/data';
 import { STAGGER_CONTAINER, FADE_IN_UP } from '@/lib/constants';
-import AnimatedBackground from './AnimatedBackground';
 import TypeWriter from './TypeWriter';
 
 // Mapeo de iconos
@@ -37,14 +36,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center"
     >
-      {/* Fondo animado */}
-      <div className="absolute inset-0 overflow-hidden">
-        <AnimatedBackground />
-      </div>
-
-      {/* Gradiente overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white dark:from-gray-950/50 dark:via-transparent dark:to-gray-950 pointer-events-none" />
-
       {/* Contenido principal */}
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
         <motion.div
