@@ -6,16 +6,18 @@ import { PersonalInfo, SocialLink, NavItem } from '@/types';
 // ============================================
 
 export const personalInfo: PersonalInfo = {
-  name: 'Tu Nombre',
-  title: 'Desarrollador Full Stack',
-  subtitle: 'Creando experiencias digitales únicas',
-  email: 'tu.email@ejemplo.com',
-  phone: '+1 234 567 890',
-  location: 'Ciudad, País',
-  bio: `Soy un desarrollador Full Stack apasionado por crear aplicaciones web 
-modernas y escalables. Con más de X años de experiencia, me especializo en 
-tecnologías como React, Node.js y TypeScript. Me encanta resolver problemas 
-complejos y transformar ideas en productos digitales funcionales.`,
+  name: 'Andrés Alpízar',
+  title: 'Desarrollador Software Junior',
+  subtitle: 'Interesado en oportunidades laborales presenciales, híbridas o remotas',
+  email: 'andresalpizar03@gmail.com',
+  phone: '+506 8477 5731',
+  location: 'Heredia, Costa Rica',
+  bio: `Desarrollador Software Junior · Backend / Full Stack | Ingeniero en Sistemas. Especialista en .NET y Java para el desarrollo de APIs REST y aplicaciones bajo arquitectura MVC. Con experiencia práctica en metodologías ágiles, control de versiones y buenas prácticas de desarrollo. Enfocado en aportar valor técnico y evolucionar profesionalmente en entornos desafiantes.`,
+  linkedinBio: `Ingeniero en Sistemas (en proceso de titulación) y Desarrollador Software Junior.
+
+Especializado en la creación de soluciones robustas con .NET y Java. Cuento con experiencia sólida desarrollando APIs REST, arquitecturas en capas y gestión de bases de datos relacionales. Mi enfoque principal es construir software escalable, integrando lógica de negocio eficiente y patrones de diseño como MVC.
+
+Apasionado por las buenas prácticas y el aprendizaje continuo, busco mi primera oportunidad profesional para aportar valor técnico y seguir evolucionando en entornos de alto nivel.`,
   avatar: '/images/avatar.jpg',
   resume: '/documents/cv.pdf',
 };
@@ -28,31 +30,31 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'github',
     name: 'GitHub',
-    url: 'https://github.com/tuusuario',
+    url: 'https://github.com/AndresALPD',
     icon: 'FaGithub',
   },
   {
     id: 'linkedin',
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/tuusuario',
+    url: 'https://www.linkedin.com/in/andres-alpd',
     icon: 'FaLinkedin',
   },
   {
     id: 'telegram',
     name: 'Telegram',
-    url: 'https://t.me/tuusuario',
+    url: 'https://t.me/andres_alpd',
     icon: 'FaTelegram',
   },
   {
     id: 'email',
     name: 'Email',
-    url: 'mailto:tu.email@ejemplo.com',
+    url: 'mailto:andresalpizar03@gmail.com',
     icon: 'HiMail',
   },
   {
-    id: 'phone',
-    name: 'Teléfono',
-    url: 'tel:+1234567890',
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    url: 'https://wa.me/50684775731',
     icon: 'FaPhone',
   },
 ];

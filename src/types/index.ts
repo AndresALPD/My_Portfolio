@@ -11,6 +11,7 @@ export interface PersonalInfo {
   phone?: string;
   location: string;
   bio: string;
+  linkedinBio: string;
   avatar?: string;
   resume?: string;
 }

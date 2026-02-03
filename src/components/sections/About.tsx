@@ -168,12 +168,7 @@ export default function About() {
                 {personalInfo.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                {personalInfo.bio}
-              </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Mi enfoque se centra en escribir código limpio, escalable y mantenible. 
-                Me apasiona aprender nuevas tecnologías y compartir conocimiento con la comunidad 
-                de desarrolladores.
+                {personalInfo.linkedinBio}
               </p>
             </div>
 
