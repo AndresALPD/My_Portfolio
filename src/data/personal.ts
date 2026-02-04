@@ -46,12 +46,6 @@ export const socialLinks: SocialLink[] = [
     icon: 'FaTelegram',
   },
   {
-    id: 'email',
-    name: 'Email',
-    url: 'mailto:andresalpizar03@gmail.com',
-    icon: 'HiMail',
-  },
-  {
     id: 'whatsapp',
     name: 'WhatsApp',
     url: 'https://wa.me/50684775731',

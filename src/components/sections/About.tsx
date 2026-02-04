@@ -93,8 +93,8 @@ export default function About() {
             className="relative"
           >
             {/* Imagen principal */}
-            <div className="relative z-10">
-              <div className="relative w-full max-w-sm mx-auto aspect-square rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative z-10 mx-auto w-fit">
+              <div className="relative w-64 sm:w-72 md:w-80 lg:w-96 aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 {/* Placeholder de imagen - reemplazar con tu foto */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
                   <span className="text-white/80 text-8xl font-bold">
@@ -117,13 +117,13 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 z-20"
+                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-3 sm:p-4 z-20"
               >
                 <div className="text-center">
-                  <span className="block text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                  <span className="block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                     3+
                   </span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     Años de<br />Experiencia
                   </span>
                 </div>
@@ -135,13 +135,13 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="absolute -top-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 z-20"
+                className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-3 sm:p-4 z-20"
               >
                 <div className="text-center">
-                  <span className="block text-3xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
+                  <span className="block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
                     20+
                   </span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     Proyectos<br />Completados
                   </span>
                 </div>
@@ -175,17 +175,14 @@ export default function About() {
             {/* Info de contacto rápido */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <HiLocationMarker className="text-blue-500 flex-shrink-0" size={20} />
-                <span>{personalInfo.location}</span>
+                <HiMail className="text-blue-500 flex-shrink-0" size={20} />
+                <span>
+                  {personalInfo.email}
+                </span>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <HiMail className="text-blue-500 flex-shrink-0" size={20} />
-                <a 
-                  href={`mailto:${personalInfo.email}`}
-                  className="hover:text-blue-500 transition-colors"
-                >
-                  {personalInfo.email}
-                </a>
+                <HiLocationMarker className="text-blue-500 flex-shrink-0" size={20} />
+                <span>{personalInfo.location}</span>
               </div>
             </div>
 

@@ -56,13 +56,10 @@ export default function Footer() {
             
             {/* Contact Info */}
             <div className="space-y-2">
-              <a 
-                href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
-              >
+              <div className="flex items-center gap-2 text-gray-400">
                 <HiMail size={18} />
                 <span>{personalInfo.email}</span>
-              </a>
+              </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <HiLocationMarker size={18} />
                 <span>{personalInfo.location}</span>
@@ -93,7 +90,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Sígueme</h3>
+            <h3 className="text-white font-semibold mb-4">Sígueme o hablemos!</h3>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <motion.a
