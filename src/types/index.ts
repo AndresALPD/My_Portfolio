@@ -28,18 +28,16 @@ export interface SocialLink {
 export interface Skill {
   id: string;
   name: string;
-  level: number; // 0-100
   category: SkillCategory;
   icon?: string;
 }
 
 export type SkillCategory = 
-  | 'frontend'
+  | 'languages'
   | 'backend'
+  | 'frontend'
   | 'database'
-  | 'devops'
-  | 'tools'
-  | 'languages';
+  | 'tools';
 
 // Proyectos
 export interface Project {

@@ -1,6 +1,6 @@
 'use client';
 
-import { Hero, About } from '@/components/sections';
+import { Hero, About, Skills } from '@/components/sections';
 
 export default function Home() {
   return (
@@ -11,13 +11,8 @@ export default function Home() {
       {/* About Section */}
       <About />
 
-      {/* Secciones placeholder para navegación */}
-      <section id="skills" className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-400">Sección: Habilidades</h2>
-          <p className="text-gray-500 mt-2">Próximamente...</p>
-        </div>
-      </section>
+      {/* Skills Section */}
+      <Skills />
 
       <section id="projects" className="min-h-screen flex items-center justify-center">
         <div className="text-center">

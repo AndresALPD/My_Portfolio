@@ -2,172 +2,179 @@ import { Skill } from '@/types';
 
 // ============================================
 // HABILIDADES TÉCNICAS
-// Modifica los niveles según tu experiencia (0-100)
 // ============================================
 
 export const skills: Skill[] = [
-  // Frontend
+  // Lenguajes de Programación
   {
-    id: 'react',
-    name: 'React',
-    level: 90,
-    category: 'frontend',
-    icon: 'FaReact',
+    id: 'java',
+    name: 'Java',
+    category: 'languages',
+    icon: 'FaJava',
   },
   {
-    id: 'nextjs',
-    name: 'Next.js',
-    level: 85,
-    category: 'frontend',
-    icon: 'SiNextdotjs',
+    id: 'csharp',
+    name: 'C#',
+    category: 'languages',
+    icon: 'SiCsharp',
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    category: 'languages',
+    icon: 'FaPython',
   },
   {
     id: 'typescript',
     name: 'TypeScript',
-    level: 85,
-    category: 'frontend',
+    category: 'languages',
     icon: 'SiTypescript',
   },
   {
-    id: 'tailwind',
-    name: 'Tailwind CSS',
-    level: 90,
-    category: 'frontend',
-    icon: 'SiTailwindcss',
+    id: 'sql',
+    name: 'SQL',
+    category: 'languages',
+    icon: 'SiMysql',
   },
   {
-    id: 'html',
+    id: 'php',
+    name: 'PHP',
+    category: 'languages',
+    icon: 'FaPhp',
+  },
+
+  // Backend
+  {
+    id: 'spring-boot',
+    name: 'Spring Boot',
+    category: 'backend',
+    icon: 'SiSpring',
+  },
+  {
+    id: 'dotnet',
+    name: '.NET',
+    category: 'backend',
+    icon: 'SiDotnet',
+  },
+  {
+    id: 'aspnet-core',
+    name: 'ASP.NET Core',
+    category: 'backend',
+    icon: 'SiDotnet',
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    category: 'backend',
+    icon: 'FaNodeJs',
+  },
+  {
+    id: 'restful-apis',
+    name: 'RESTful APIs',
+    category: 'backend',
+    icon: 'SiPostman',
+  },
+  {
+    id: 'mvc',
+    name: 'MVC',
+    category: 'backend',
+    icon: 'FaCode',
+  },
+
+  // Frontend
+  {
+    id: 'html5',
     name: 'HTML5',
-    level: 95,
     category: 'frontend',
     icon: 'FaHtml5',
   },
   {
-    id: 'css',
+    id: 'css3',
     name: 'CSS3',
-    level: 90,
     category: 'frontend',
     icon: 'FaCss3Alt',
   },
   {
     id: 'javascript',
     name: 'JavaScript',
-    level: 92,
     category: 'frontend',
     icon: 'SiJavascript',
   },
-
-  // Backend
   {
-    id: 'nodejs',
-    name: 'Node.js',
-    level: 85,
-    category: 'backend',
-    icon: 'FaNodeJs',
+    id: 'react',
+    name: 'React',
+    category: 'frontend',
+    icon: 'FaReact',
   },
   {
-    id: 'express',
-    name: 'Express.js',
-    level: 80,
-    category: 'backend',
-    icon: 'SiExpress',
-  },
-  {
-    id: 'nestjs',
-    name: 'NestJS',
-    level: 75,
-    category: 'backend',
-    icon: 'SiNestjs',
-  },
-  {
-    id: 'python',
-    name: 'Python',
-    level: 70,
-    category: 'backend',
-    icon: 'FaPython',
+    id: 'bootstrap',
+    name: 'Bootstrap',
+    category: 'frontend',
+    icon: 'FaBootstrap',
   },
 
   // Bases de datos
   {
+    id: 'sql-server',
+    name: 'SQL Server',
+    category: 'database',
+    icon: 'SiMicrosoftsqlserver',
+  },
+  {
     id: 'postgresql',
     name: 'PostgreSQL',
-    level: 80,
     category: 'database',
     icon: 'SiPostgresql',
   },
   {
-    id: 'mongodb',
-    name: 'MongoDB',
-    level: 85,
-    category: 'database',
-    icon: 'SiMongodb',
-  },
-  {
     id: 'mysql',
     name: 'MySQL',
-    level: 75,
     category: 'database',
     icon: 'SiMysql',
   },
   {
-    id: 'redis',
-    name: 'Redis',
-    level: 65,
+    id: 'mongodb',
+    name: 'MongoDB',
     category: 'database',
-    icon: 'SiRedis',
-  },
-
-  // DevOps
-  {
-    id: 'docker',
-    name: 'Docker',
-    level: 75,
-    category: 'devops',
-    icon: 'FaDocker',
-  },
-  {
-    id: 'aws',
-    name: 'AWS',
-    level: 70,
-    category: 'devops',
-    icon: 'FaAws',
-  },
-  {
-    id: 'git',
-    name: 'Git',
-    level: 90,
-    category: 'devops',
-    icon: 'FaGitAlt',
-  },
-  {
-    id: 'github-actions',
-    name: 'GitHub Actions',
-    level: 75,
-    category: 'devops',
-    icon: 'SiGithubactions',
+    icon: 'SiMongodb',
   },
 
   // Herramientas
   {
-    id: 'vscode',
-    name: 'VS Code',
-    level: 95,
+    id: 'git',
+    name: 'Git',
     category: 'tools',
-    icon: 'SiVisualstudiocode',
+    icon: 'FaGitAlt',
   },
   {
-    id: 'figma',
-    name: 'Figma',
-    level: 70,
+    id: 'github',
+    name: 'GitHub',
     category: 'tools',
-    icon: 'FaFigma',
+    icon: 'FaGithub',
   },
   {
     id: 'postman',
     name: 'Postman',
-    level: 85,
     category: 'tools',
     icon: 'SiPostman',
+  },
+  {
+    id: 'firebase',
+    name: 'Firebase',
+    category: 'tools',
+    icon: 'SiFirebase',
+  },
+  {
+    id: 'scrum',
+    name: 'Metodologías Ágiles (Scrum)',
+    category: 'tools',
+    icon: 'FaTasks',
+  },
+  {
+    id: 'documentation',
+    name: 'Documentación técnica',
+    category: 'tools',
+    icon: 'FaBook',
   },
 ];
 
@@ -176,11 +183,11 @@ export const skills: Skill[] = [
 // ============================================
 
 export const skillCategories = [
-  { id: 'frontend', label: 'Frontend', color: 'from-blue-500 to-cyan-500' },
+  { id: 'languages', label: 'Lenguajes de Programación', color: 'from-blue-500 to-cyan-500' },
   { id: 'backend', label: 'Backend', color: 'from-green-500 to-emerald-500' },
-  { id: 'database', label: 'Base de Datos', color: 'from-purple-500 to-pink-500' },
-  { id: 'devops', label: 'DevOps', color: 'from-orange-500 to-amber-500' },
-  { id: 'tools', label: 'Herramientas', color: 'from-red-500 to-rose-500' },
+  { id: 'frontend', label: 'Frontend', color: 'from-purple-500 to-pink-500' },
+  { id: 'database', label: 'Bases de Datos', color: 'from-orange-500 to-amber-500' },
+  { id: 'tools', label: 'Herramientas y Prácticas', color: 'from-red-500 to-rose-500' },
 ];
 
 // Helper para obtener skills por categoría
