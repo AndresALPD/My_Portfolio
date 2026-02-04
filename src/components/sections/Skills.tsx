@@ -13,7 +13,8 @@ import {
   FaGitAlt,
   FaGithub,
   FaCode,
-  FaBook
+  FaBook,
+  FaDocker
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -24,7 +25,10 @@ import {
   SiJavascript,
   SiPostgresql,
   SiMongodb,
-  SiFirebase
+  SiFirebase,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiIntellijidea
 } from 'react-icons/si';
 import { HiClipboardList } from 'react-icons/hi';
 import { skills, skillCategories, getSkillsByCategory } from '@/data';
@@ -56,6 +60,12 @@ const skillIcons: Record<string, React.ReactNode> = {
   SiFirebase: <SiFirebase size={28} />,
   FaTasks: <HiClipboardList size={28} />,
   FaBook: <FaBook size={28} />,
+  SiNextdotjs: <SiNextdotjs size={28} />,
+  SiTailwindcss: <SiTailwindcss size={28} />,
+  FaDocker: <FaDocker size={28} />,
+  SiVisualstudio: <FaCode size={28} />,
+  SiVisualstudiocode: <FaCode size={28} />,
+  SiIntellijidea: <SiIntellijidea size={28} />,
 };
 
 export default function Skills() {
@@ -88,7 +98,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Categorías de habilidades */}
-        <div className="space-y-12">
+        <div className="space-y-12 max-w-7xl mx-auto">
           {skillCategories.map((category, categoryIndex) => {
             const categorySkills = getSkillsByCategory(category.id);
             
@@ -101,7 +111,7 @@ export default function Skills() {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
               >
                 {/* Título de categoría */}
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-6 px-2">
                   <div className={`w-1 h-8 rounded-full bg-gradient-to-b ${category.color}`} />
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                     {category.label}
@@ -115,7 +125,7 @@ export default function Skills() {
                   initial="initial"
                   whileInView="animate"
                   viewport={{ once: true }}
-                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
                 >
                   {categorySkills.map((skill, skillIndex) => (
                     <motion.div
@@ -126,10 +136,10 @@ export default function Skills() {
                         y: -5,
                         transition: { type: 'spring', stiffness: 400, damping: 17 }
                       }}
-                      className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-shadow cursor-default"
+                      className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-shadow cursor-default flex flex-col items-center"
                     >
                       {/* Icono */}
-                      <div className={`flex items-center justify-center w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-br ${category.color} bg-opacity-10 text-white`}>
+                      <div className={`flex items-center justify-center w-12 h-12 mb-3 rounded-lg bg-gradient-to-br ${category.color} bg-opacity-10 text-white flex-shrink-0`}>
                         {skill.icon && skillIcons[skill.icon] ? (
                           skillIcons[skill.icon]
                         ) : (
@@ -138,7 +148,7 @@ export default function Skills() {
                       </div>
                       
                       {/* Nombre */}
-                      <p className="text-center text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <p className="text-center text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors min-h-[2.5rem] flex items-center">
                         {skill.name}
                       </p>
 

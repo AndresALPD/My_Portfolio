@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   HiCode, 
   HiDatabase, 
@@ -15,10 +16,10 @@ import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 
 // Estadísticas del desarrollador
 const stats = [
-  { id: 1, value: '3+', label: 'Años de Experiencia' },
-  { id: 2, value: '20+', label: 'Proyectos Completados' },
-  { id: 3, value: '15+', label: 'Clientes Satisfechos' },
-  { id: 4, value: '10+', label: 'Tecnologías Dominadas' },
+  { id: 1, value: '4+', label: 'Años de Experiencia Académica' },
+  { id: 2, value: '15+', label: 'Proyectos Completados' },
+  { id: 3, value: '10+', label: 'Certificados Relevantes' },
+  { id: 4, value: '30+', label: 'Tecnologías Dominadas' },
 ];
 
 // Áreas de especialización
@@ -27,28 +28,28 @@ const specializations = [
     id: 1,
     icon: HiCode,
     title: 'Frontend Development',
-    description: 'React, Next.js, TypeScript, Tailwind CSS',
+    description: 'HTML5, CSS3, JavaScript, React, Tailwind CSS, Next.js, Bootstrap',
     color: 'from-blue-500 to-cyan-500',
   },
   {
     id: 2,
     icon: HiDatabase,
     title: 'Backend Development',
-    description: 'Node.js, Express, PostgreSQL, MongoDB',
+    description: 'Java, C#, .NET, Spring Boot, ASP.NET Core, Node.js, RESTful APIs, MVC',
     color: 'from-green-500 to-emerald-500',
   },
   {
     id: 3,
     icon: HiCloud,
     title: 'Cloud & DevOps',
-    description: 'AWS, Docker, CI/CD, Git',
+    description: 'Docker, Firebase, Git, GitHub, OCI (Oracle Cloud Infrastructure)',
     color: 'from-purple-500 to-pink-500',
   },
   {
     id: 4,
     icon: HiLightningBolt,
-    title: 'Performance',
-    description: 'Optimización, SEO, Web Vitals',
+    title: 'Bases de Datos',
+    description: 'SQL Server, PostgreSQL, MySQL, MongoDB',
     color: 'from-orange-500 to-amber-500',
   },
 ];
@@ -95,23 +96,24 @@ export default function About() {
             {/* Imagen principal */}
             <div className="relative z-10 mx-auto w-fit">
               <div className="relative w-64 sm:w-72 md:w-80 lg:w-96 aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                {/* Placeholder de imagen - reemplazar con tu foto */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-                  <span className="text-white/80 text-8xl font-bold">
-                    {personalInfo.name.charAt(0)}
-                  </span>
-                </div>
-                {/* Cuando tengas una imagen real, usa esto:
-                <Image
-                  src={personalInfo.avatar || '/images/avatar.jpg'}
-                  alt={personalInfo.name}
-                  fill
-                  className="object-cover"
-                /> 
-                */}
+                {personalInfo.avatar ? (
+                  <Image
+                    src={personalInfo.avatar}
+                    alt={personalInfo.name}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+                    <span className="text-white/80 text-8xl font-bold">
+                      {personalInfo.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
               </div>
               
-              {/* Decoración flotante - Años de experiencia */}
+              {/* Decoración flotante - Nivel de Inglés */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -121,15 +123,15 @@ export default function About() {
               >
                 <div className="text-center">
                   <span className="block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                    3+
+                    B1
                   </span>
                   <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Años de<br />Experiencia
+                    Nivel de Inglés
                   </span>
                 </div>
               </motion.div>
 
-              {/* Decoración flotante - Proyectos */}
+              {/* Decoración flotante - Edad */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -139,10 +141,10 @@ export default function About() {
               >
                 <div className="text-center">
                   <span className="block text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
-                    20+
+                    22
                   </span>
                   <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Proyectos<br />Completados
+                    Años de Edad
                   </span>
                 </div>
               </motion.div>

@@ -107,6 +107,18 @@ export const skills: Skill[] = [
     icon: 'FaReact',
   },
   {
+    id: 'tailwindcss',
+    name: 'Tailwind CSS',
+    category: 'frontend',
+    icon: 'SiTailwindcss',
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    category: 'frontend',
+    icon: 'SiNextdotjs',
+  },
+  {
     id: 'bootstrap',
     name: 'Bootstrap',
     category: 'frontend',
@@ -163,6 +175,30 @@ export const skills: Skill[] = [
     name: 'Firebase',
     category: 'tools',
     icon: 'SiFirebase',
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    category: 'tools',
+    icon: 'FaDocker',
+  },
+  {
+    id: 'visualstudio',
+    name: 'Microsoft Visual Studio',
+    category: 'tools',
+    icon: 'SiVisualstudio',
+  },
+  {
+    id: 'vscode',
+    name: 'Visual Studio Code',
+    category: 'tools',
+    icon: 'SiVisualstudiocode',
+  },
+  {
+    id: 'intellij',
+    name: 'IntelliJ IDEA',
+    category: 'tools',
+    icon: 'SiIntellijidea',
   },
   {
     id: 'scrum',
