@@ -12,9 +12,7 @@ export { skills, skillCategories, getSkillsByCategory } from './skills';
 // Proyectos
 export { 
   projects, 
-  projectCategories, 
-  getFeaturedProjects, 
-  getProjectsByCategory 
+  getFeaturedProjects 
 } from './projects';
 
 // Experiencia y educación

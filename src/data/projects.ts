@@ -17,7 +17,6 @@ export const projects: Project[] = [
     para gestionar pedidos e inventario.`,
     image: '/images/projects/ecommerce.jpg',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'Stripe'],
-    category: 'fullstack',
     liveUrl: 'https://mi-ecommerce.com',
     githubUrl: 'https://github.com/usuario/ecommerce',
     featured: true,
@@ -33,7 +32,6 @@ export const projects: Project[] = [
     drag & drop intuitivo, y sistema de notificaciones push.`,
     image: '/images/projects/taskapp.jpg',
     technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Redux'],
-    category: 'fullstack',
     liveUrl: 'https://mi-taskapp.com',
     githubUrl: 'https://github.com/usuario/taskapp',
     featured: true,
@@ -49,7 +47,6 @@ export const projects: Project[] = [
     y visualizaciones con gráficos interactivos.`,
     image: '/images/projects/weather.jpg',
     technologies: ['React', 'TypeScript', 'Chart.js', 'OpenWeather API'],
-    category: 'web',
     liveUrl: 'https://mi-weather.com',
     githubUrl: 'https://github.com/usuario/weather',
     featured: false,
@@ -65,7 +62,6 @@ export const projects: Project[] = [
     rate limiting, y documentación automática con Swagger.`,
     image: '/images/projects/api.jpg',
     technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Swagger'],
-    category: 'api',
     githubUrl: 'https://github.com/usuario/blog-api',
     featured: false,
     date: '2024-06',
@@ -80,7 +76,6 @@ export const projects: Project[] = [
     gráficos de progreso y sincronización con wearables.`,
     image: '/images/projects/fitness.jpg',
     technologies: ['React Native', 'Expo', 'Firebase', 'Redux'],
-    category: 'mobile',
     liveUrl: 'https://play.google.com/store/apps/details?id=fitness',
     githubUrl: 'https://github.com/usuario/fitness',
     featured: true,
@@ -96,7 +91,6 @@ export const projects: Project[] = [
     funcional, y optimización SEO completa.`,
     image: '/images/projects/portfolio.jpg',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    category: 'web',
     liveUrl: 'https://miportafolio.com',
     githubUrl: 'https://github.com/usuario/portfolio',
     featured: false,
@@ -104,25 +98,7 @@ export const projects: Project[] = [
   },
 ];
 
-// ============================================
-// CATEGORÍAS DE PROYECTOS
-// ============================================
-
-export const projectCategories = [
-  { id: 'all', label: 'Todos' },
-  { id: 'fullstack', label: 'Full Stack' },
-  { id: 'web', label: 'Web' },
-  { id: 'mobile', label: 'Mobile' },
-  { id: 'api', label: 'API' },
-];
-
 // Helper para obtener proyectos destacados
 export const getFeaturedProjects = (): Project[] => {
   return projects.filter((project) => project.featured);
-};
-
-// Helper para filtrar por categoría
-export const getProjectsByCategory = (category: string): Project[] => {
-  if (category === 'all') return projects;
-  return projects.filter((project) => project.category === category);
 };

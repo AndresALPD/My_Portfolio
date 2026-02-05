@@ -10,15 +10,11 @@ import {
   FaFolder
 } from 'react-icons/fa';
 import { HiArrowRight } from 'react-icons/hi';
-import { projects, projectCategories, getProjectsByCategory, getFeaturedProjects } from '@/data';
+import { projects } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState('all');
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-
-  const filteredProjects = getProjectsByCategory(activeCategory);
-  const featuredProjects = getFeaturedProjects();
 
   return (
     <section
@@ -48,36 +44,13 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Filtros de categoría */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {projectCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/25'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Grid de proyectos */}
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.article
                 key={project.id}
                 layout
@@ -146,17 +119,14 @@ export default function Projects() {
 
                 {/* Contenido */}
                 <div className="p-5 sm:p-6">
-                  {/* Categoría y fecha */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-                      {projectCategories.find(c => c.id === project.category)?.label || project.category}
-                    </span>
-                    {project.date && (
+                  {/* Fecha */}
+                  {project.date && (
+                    <div className="mb-3">
                       <span className="text-xs text-gray-500 dark:text-gray-400">
                         {new Date(project.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })}
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   {/* Título */}
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">

@@ -47,19 +47,11 @@ export interface Project {
   longDescription?: string;
   image: string;
   technologies: string[];
-  category: ProjectCategory;
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
   date: string;
 }
-
-export type ProjectCategory = 
-  | 'web'
-  | 'mobile'
-  | 'fullstack'
-  | 'api'
-  | 'other';
 
 // Experiencia laboral
 export interface Experience {
