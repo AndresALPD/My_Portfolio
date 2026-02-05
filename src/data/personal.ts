@@ -7,13 +7,13 @@ import { PersonalInfo, SocialLink, NavItem } from '@/types';
 
 export const personalInfo: PersonalInfo = {
   name: 'Andrés Alpízar',
-  title: 'Desarrollador Software Junior',
+  title: 'Desarrollador de Software',
   subtitle: 'Interesado en oportunidades laborales presenciales, híbridas o remotas',
   email: 'andresalpizar03@gmail.com',
   phone: '+506 8477 5731',
   location: 'Heredia, Costa Rica',
-  bio: `Desarrollador Software Junior · Backend / Full Stack | Ingeniero en Sistemas. Especialista en .NET y Java para el desarrollo de APIs REST y aplicaciones bajo arquitectura MVC. Con experiencia práctica en metodologías ágiles, control de versiones y buenas prácticas de desarrollo. Enfocado en aportar valor técnico y evolucionar profesionalmente en entornos desafiantes.`,
-  linkedinBio: `Ingeniero en Sistemas (en proceso de titulación) y Desarrollador Software Junior.
+  bio: `Desarrollador de Software · Backend / Full Stack | Ingeniero en Sistemas. Especialista en .NET y Java para el desarrollo de APIs REST y aplicaciones bajo arquitectura MVC. Con experiencia práctica en metodologías ágiles, control de versiones y buenas prácticas de desarrollo. Enfocado en aportar valor técnico y evolucionar profesionalmente en entornos desafiantes.`,
+  linkedinBio: `Ingeniero en Sistemas (en proceso de titulación) y Desarrollador de Software.
 
 Especializado en la creación de soluciones robustas con .NET y Java. Cuento con experiencia sólida desarrollando APIs REST, arquitecturas en capas y gestión de bases de datos relacionales. Mi enfoque principal es construir software escalable, integrando lógica de negocio eficiente y patrones de diseño como MVC.
 
