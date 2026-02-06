@@ -58,7 +58,12 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-gray-400">
                 <HiMail size={18} />
-                <span>{personalInfo.email}</span>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {personalInfo.email}
+                </a>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <HiLocationMarker size={18} />

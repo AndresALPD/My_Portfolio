@@ -18,8 +18,8 @@ import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 const stats = [
   { id: 1, value: '4+', label: 'Años de Experiencia Académica' },
   { id: 2, value: '15+', label: 'Proyectos Completados' },
-  { id: 3, value: '10+', label: 'Certificados Relevantes' },
-  { id: 4, value: '30+', label: 'Tecnologías Dominadas' },
+  { id: 3, value: '8+', label: 'Certificados Relevantes' },
+  { id: 4, value: '25+', label: 'Tecnologías Dominadas' },
 ];
 
 // Áreas de especialización
@@ -178,9 +178,12 @@ export default function About() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                 <HiMail className="text-blue-500 flex-shrink-0" size={20} />
-                <span>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
                   {personalInfo.email}
-                </span>
+                </a>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                 <HiLocationMarker className="text-blue-500 flex-shrink-0" size={20} />

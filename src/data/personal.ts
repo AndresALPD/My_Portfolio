@@ -28,16 +28,22 @@ Apasionado por las buenas prácticas y el aprendizaje continuo, busco mi primera
 
 export const socialLinks: SocialLink[] = [
   {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/andres-alpd',
+    icon: 'FaLinkedin',
+  },
+  {
     id: 'github',
     name: 'GitHub',
     url: 'https://github.com/AndresALPD',
     icon: 'FaGithub',
   },
   {
-    id: 'linkedin',
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/andres-alpd',
-    icon: 'FaLinkedin',
+    id: 'email',
+    name: 'Email',
+    url: 'mailto:andresalpizar03@gmail.com',
+    icon: 'HiMail',
   },
   {
     id: 'telegram',
