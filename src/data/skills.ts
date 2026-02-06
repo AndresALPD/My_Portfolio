@@ -182,36 +182,6 @@ export const skills: Skill[] = [
     category: 'tools',
     icon: 'FaDocker',
   },
-  {
-    id: 'visualstudio',
-    name: 'Microsoft Visual Studio',
-    category: 'tools',
-    icon: 'SiVisualstudio',
-  },
-  {
-    id: 'vscode',
-    name: 'Visual Studio Code',
-    category: 'tools',
-    icon: 'SiVisualstudiocode',
-  },
-  {
-    id: 'intellij',
-    name: 'IntelliJ IDEA',
-    category: 'tools',
-    icon: 'SiIntellijidea',
-  },
-  {
-    id: 'scrum',
-    name: 'Metodologías Ágiles (Scrum)',
-    category: 'tools',
-    icon: 'FaTasks',
-  },
-  {
-    id: 'documentation',
-    name: 'Documentación técnica',
-    category: 'tools',
-    icon: 'FaBook',
-  },
 ];
 
 // ============================================

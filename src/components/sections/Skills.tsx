@@ -13,7 +13,6 @@ import {
   FaGitAlt,
   FaGithub,
   FaCode,
-  FaBook,
   FaDocker
 } from 'react-icons/fa';
 import { 
@@ -27,10 +26,8 @@ import {
   SiMongodb,
   SiFirebase,
   SiNextdotjs,
-  SiTailwindcss,
-  SiIntellijidea
+  SiTailwindcss
 } from 'react-icons/si';
-import { HiClipboardList } from 'react-icons/hi';
 import { skills, skillCategories, getSkillsByCategory } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 
@@ -58,14 +55,9 @@ const skillIcons: Record<string, React.ReactNode> = {
   FaGitAlt: <FaGitAlt size={28} />,
   FaGithub: <FaGithub size={28} />,
   SiFirebase: <SiFirebase size={28} />,
-  FaTasks: <HiClipboardList size={28} />,
-  FaBook: <FaBook size={28} />,
   SiNextdotjs: <SiNextdotjs size={28} />,
   SiTailwindcss: <SiTailwindcss size={28} />,
   FaDocker: <FaDocker size={28} />,
-  SiVisualstudio: <FaCode size={28} />,
-  SiVisualstudiocode: <FaCode size={28} />,
-  SiIntellijidea: <SiIntellijidea size={28} />,
 };
 
 export default function Skills() {
@@ -87,13 +79,13 @@ export default function Skills() {
             Mis Herramientas
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Tecnologías y{' '}
+            Habilidades{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Habilidades
+              Tecnológicas
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Stack tecnológico que utilizo para crear soluciones robustas y escalables
+            Stack tecnológico que utilizo para diseñar y desarrollar soluciones escalables y mantenibles
           </p>
         </motion.div>
 
