@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { 
   FaGithub, 
@@ -12,6 +12,42 @@ import {
 import { HiArrowRight } from 'react-icons/hi';
 import { projects } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
+
+// Mapeo de tecnología → categoría (consistente con Skills)
+const techCategoryMap: Record<string, string> = {
+  // Lenguajes
+  'Java': 'languages', 'C#': 'languages', 'Python': 'languages',
+  'TypeScript': 'languages', 'SQL': 'languages', 'PHP': 'languages',
+  // Backend
+  'Spring Boot': 'backend', '.NET': 'backend', 'ASP.NET Core': 'backend',
+  'Node.js': 'backend', 'RESTful APIs': 'backend', 'MVC': 'backend',
+  'Entity Framework': 'backend', 'JWT': 'backend', 'FastAPI': 'backend',
+  // Frontend
+  'HTML': 'frontend', 'CSS': 'frontend', 'JavaScript': 'frontend',
+  'React': 'frontend', 'Tailwind CSS': 'frontend', 'Next.js': 'frontend',
+  'Bootstrap': 'frontend',
+  // Bases de datos
+  'SQL Server': 'database', 'PostgreSQL': 'database', 'MySQL': 'database',
+  'MongoDB': 'database',
+  // Herramientas
+  'Git': 'tools', 'GitHub': 'tools', 'Postman': 'tools',
+  'Firebase': 'tools', 'Docker': 'tools', 'Maven': 'tools',
+  'Swagger': 'tools', 'OpenAI API': 'tools',
+};
+
+// Colores por categoría (mismos que en Skills)
+const categoryColors: Record<string, string> = {
+  languages: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  backend: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300',
+  frontend: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+  database: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300',
+  tools: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300',
+};
+
+const getTechColor = (tech: string): string => {
+  const category = techCategoryMap[tech];
+  return category ? categoryColors[category] : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300';
+};
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -46,21 +82,31 @@ export default function Projects() {
 
         {/* Grid de proyectos */}
         <motion.div
-          layout
+          variants={STAGGER_CONTAINER}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          <AnimatePresence mode="popLayout">
-            {projects.map((project, index) => (
+          {projects.map((project, index) => (
               <motion.article
                 key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.5,
+                      delay: index * 0.1,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
+                }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
-                className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300"
+                className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Imagen del proyecto */}
                 <div className="relative h-48 sm:h-56 overflow-hidden">
@@ -139,25 +185,19 @@ export default function Projects() {
                   </p>
 
                   {/* Tecnologías */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md"
+                        className={`px-2 py-0.5 text-xs font-medium rounded-md ${getTechColor(tech)}`}
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-md">
-                        +{project.technologies.length - 4}
-                      </span>
-                    )}
                   </div>
                 </div>
               </motion.article>
             ))}
-          </AnimatePresence>
         </motion.div>
 
         {/* CTA para ver más */}

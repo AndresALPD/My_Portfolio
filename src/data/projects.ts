@@ -14,7 +14,7 @@ export const projects: Project[] = [
     Incluye módulos de registro de niños, control de asistencia, 
     comunicación con padres y gestión de actividades educativas.`,
     image: '/images/Kindercare.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'SQL Server', 'MVC', 'JWT', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Docker', 'Scrum'],
+    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'JWT', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQL Server', 'Docker'],
     liveUrl: 'https://kinder-care.onrender.com/',
     githubUrl: 'https://github.com/auditore22/kinder-care',
     featured: true,
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     longDescription: `Sistema de prediccion de vuelos que permite a los usuarios 
     predecir y ver el resultado de sus vuelos y gestionar sus itinerarios de viaje.`,
     image: '/images/FlightOnTime.jpg',
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'RESTful APIs', 'Maven', 'Python', 'FastAPI', 'HTML', 'CSS', 'JavaScript', 'Scrum'],
+    technologies: ['Java', 'Python', 'Spring Boot', 'FastAPI', 'RESTful APIs', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'Maven', 'Swagger'],
     liveUrl: 'https://andresalpizar.dev',
     githubUrl: 'https://github.com/AndresALPD/FlightOnTime',
     featured: true,
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     tableros personalizables, listas de tareas, tarjetas con 
     descripciones y sistema de drag & drop.`,
     image: '/images/Trello.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'SQL Server', 'MVC', 'RESTful APIs', 'JWT', 'Swagger', 'HTML', 'CSS'],
+    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'RESTful APIs', 'JWT', 'HTML', 'CSS', 'JavaScript', 'SQL Server', 'Swagger'],
     githubUrl: 'https://github.com/AndresALPD/Trello',
     featured: false,
     date: '2025-09',
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     utilizando MongoDB para demostrar el manejo de bases de datos 
     NoSQL y arquitecturas escalables.`,
     image: '/images/KinderNoSQL.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MongoDB', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'MongoDB'],
     githubUrl: 'https://github.com/OscarNZ13/Kinder_La_Granja-NoSQL',
     featured: false,
     date: '2025-05',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     catálogo de productos, sistema de carrito, gestión de pedidos 
     y panel de administración de inventario.`,
     image: '/images/TiendaBazar.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'SQL Server', 'MVC', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQL Server'],
     githubUrl: 'https://github.com/AndresALPD/TiendaBazar',
     featured: false,
     date: '2024-09',
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     publicación de posts, sistema de likes, comentarios, 
     seguimiento de usuarios y feed personalizado.`,
     image: '/images/XClon.jpg',
-    technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['PHP', 'HTML', 'CSS', 'JavaScript', 'MySQL'],
     githubUrl: 'https://github.com/OscarNZ13/X_Clon',
     featured: false,
     date: '2024-05',
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     Incluye animaciones con Framer Motion, diseño responsive 
     y optimización SEO completa.`,
     image: '/images/Portfolio.jpg',
-    technologies: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'Node.js'],
+    technologies: ['TypeScript', 'Node.js', 'Next.js', 'React', 'Tailwind CSS'],
     liveUrl: 'https://andresalpizar.dev',
     githubUrl: 'https://github.com/AndresALPD/Portfolio',
     featured: false,
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     utilizando modelos de lenguaje para procesar consultas 
     y generar respuestas contextuales.`,
     image: '/images/AgenteIA.jpg',
-    technologies: ['Python', 'OpenAI API', 'Venv'],
+    technologies: ['Python', 'OpenAI API'],
     githubUrl: 'https://github.com/AndresALPD/Asistente-de-IA',
     featured: false,
     date: '2026-01',
