@@ -13,7 +13,10 @@ import {
   FaGitAlt,
   FaGithub,
   FaCode,
-  FaDocker
+  FaDocker,
+  FaCloud,
+  FaDatabase,
+  FaHashtag
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -34,7 +37,8 @@ import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 // Mapeo de iconos
 const skillIcons: Record<string, React.ReactNode> = {
   FaJava: <FaJava size={28} />,
-  SiCsharp: <FaCode size={28} />,
+  FaHashtag: <FaHashtag size={28} />,
+  FaCode: <FaCode size={28} />,
   FaPython: <FaPython size={28} />,
   SiTypescript: <SiTypescript size={28} />,
   SiMysql: <SiMysql size={28} />,
@@ -43,13 +47,12 @@ const skillIcons: Record<string, React.ReactNode> = {
   SiDotnet: <SiDotnet size={28} />,
   FaNodeJs: <FaNodeJs size={28} />,
   SiPostman: <SiPostman size={28} />,
-  FaCode: <FaCode size={28} />,
   FaHtml5: <FaHtml5 size={28} />,
   FaCss3Alt: <FaCss3Alt size={28} />,
   SiJavascript: <SiJavascript size={28} />,
   FaReact: <FaReact size={28} />,
   FaBootstrap: <FaBootstrap size={28} />,
-  SiMicrosoftsqlserver: <FaCode size={28} />,
+  FaDatabase: <FaDatabase size={28} />,
   SiPostgresql: <SiPostgresql size={28} />,
   SiMongodb: <SiMongodb size={28} />,
   FaGitAlt: <FaGitAlt size={28} />,
@@ -58,6 +61,7 @@ const skillIcons: Record<string, React.ReactNode> = {
   SiNextdotjs: <SiNextdotjs size={28} />,
   SiTailwindcss: <SiTailwindcss size={28} />,
   FaDocker: <FaDocker size={28} />,
+  FaCloud: <FaCloud size={28} />,
 };
 
 export default function Skills() {

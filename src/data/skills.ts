@@ -7,16 +7,16 @@ import { Skill } from '@/types';
 export const skills: Skill[] = [
   // Lenguajes de Programación
   {
+    id: 'csharp',
+    name: 'C#',
+    category: 'languages',
+    icon: 'FaHashtag',
+  },
+  {
     id: 'java',
     name: 'Java',
     category: 'languages',
     icon: 'FaJava',
-  },
-  {
-    id: 'csharp',
-    name: 'C#',
-    category: 'languages',
-    icon: 'SiCsharp',
   },
   {
     id: 'python',
@@ -25,16 +25,16 @@ export const skills: Skill[] = [
     icon: 'FaPython',
   },
   {
+    id: 'javascript',
+    name: 'JavaScript',
+    category: 'languages',
+    icon: 'SiJavascript',
+  },
+  {
     id: 'typescript',
     name: 'TypeScript',
     category: 'languages',
     icon: 'SiTypescript',
-  },
-  {
-    id: 'sql',
-    name: 'SQL',
-    category: 'languages',
-    icon: 'SiMysql',
   },
   {
     id: 'php',
@@ -45,22 +45,16 @@ export const skills: Skill[] = [
 
   // Backend
   {
-    id: 'spring-boot',
-    name: 'Spring Boot',
-    category: 'backend',
-    icon: 'SiSpring',
-  },
-  {
-    id: 'dotnet',
-    name: '.NET',
-    category: 'backend',
-    icon: 'SiDotnet',
-  },
-  {
     id: 'aspnet-core',
     name: 'ASP.NET Core',
     category: 'backend',
     icon: 'SiDotnet',
+  },
+  {
+    id: 'spring-boot',
+    name: 'Spring Boot',
+    category: 'backend',
+    icon: 'SiSpring',
   },
   {
     id: 'nodejs',
@@ -69,36 +63,18 @@ export const skills: Skill[] = [
     icon: 'FaNodeJs',
   },
   {
-    id: 'restful-apis',
-    name: 'RESTful APIs',
+    id: 'fastapi',
+    name: 'FastAPI',
     category: 'backend',
-    icon: 'SiPostman',
-  },
-  {
-    id: 'mvc',
-    name: 'MVC',
-    category: 'backend',
-    icon: 'FaCode',
+    icon: 'FaPython',
   },
 
   // Frontend
   {
-    id: 'html5',
-    name: 'HTML5',
+    id: 'nextjs',
+    name: 'Next.js',
     category: 'frontend',
-    icon: 'FaHtml5',
-  },
-  {
-    id: 'css3',
-    name: 'CSS3',
-    category: 'frontend',
-    icon: 'FaCss3Alt',
-  },
-  {
-    id: 'javascript',
-    name: 'JavaScript',
-    category: 'frontend',
-    icon: 'SiJavascript',
+    icon: 'SiNextdotjs',
   },
   {
     id: 'react',
@@ -113,16 +89,16 @@ export const skills: Skill[] = [
     icon: 'SiTailwindcss',
   },
   {
-    id: 'nextjs',
-    name: 'Next.js',
-    category: 'frontend',
-    icon: 'SiNextdotjs',
-  },
-  {
     id: 'bootstrap',
     name: 'Bootstrap',
     category: 'frontend',
     icon: 'FaBootstrap',
+  },
+  {
+    id: 'html5-css3',
+    name: 'HTML5 & CSS3',
+    category: 'frontend',
+    icon: 'FaHtml5',
   },
 
   // Bases de datos
@@ -130,19 +106,19 @@ export const skills: Skill[] = [
     id: 'sql-server',
     name: 'SQL Server',
     category: 'database',
-    icon: 'SiMicrosoftsqlserver',
-  },
-  {
-    id: 'postgresql',
-    name: 'PostgreSQL',
-    category: 'database',
-    icon: 'SiPostgresql',
+    icon: 'FaDatabase',
   },
   {
     id: 'mysql',
     name: 'MySQL',
     category: 'database',
     icon: 'SiMysql',
+  },
+  {
+    id: 'postgresql',
+    name: 'PostgreSQL',
+    category: 'database',
+    icon: 'SiPostgresql',
   },
   {
     id: 'mongodb',
@@ -165,10 +141,10 @@ export const skills: Skill[] = [
     icon: 'FaGithub',
   },
   {
-    id: 'postman',
-    name: 'Postman',
+    id: 'docker',
+    name: 'Docker',
     category: 'tools',
-    icon: 'SiPostman',
+    icon: 'FaDocker',
   },
   {
     id: 'firebase',
@@ -177,10 +153,16 @@ export const skills: Skill[] = [
     icon: 'SiFirebase',
   },
   {
-    id: 'docker',
-    name: 'Docker',
+    id: 'postman',
+    name: 'Postman',
     category: 'tools',
-    icon: 'FaDocker',
+    icon: 'SiPostman',
+  },
+  {
+    id: 'oci',
+    name: 'OCI',
+    category: 'tools',
+    icon: 'FaCloud',
   },
 ];
 
@@ -193,7 +175,7 @@ export const skillCategories = [
   { id: 'backend', label: 'Backend', color: 'from-green-500 to-emerald-500' },
   { id: 'frontend', label: 'Frontend', color: 'from-purple-500 to-pink-500' },
   { id: 'database', label: 'Bases de Datos', color: 'from-orange-500 to-amber-500' },
-  { id: 'tools', label: 'Herramientas y Prácticas', color: 'from-red-500 to-rose-500' },
+  { id: 'tools', label: 'Herramientas', color: 'from-red-500 to-rose-500' },
 ];
 
 // Helper para obtener skills por categoría
