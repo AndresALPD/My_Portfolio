@@ -15,8 +15,8 @@ export {
   getFeaturedProjects 
 } from './projects';
 
-// Experiencia y educación
-export { experiences, education, certifications } from './experience';
+// Educación y certificaciones
+export { education, certifications } from './experience';
 
 // Servicios y testimonios
 export { services, testimonials } from './services';
