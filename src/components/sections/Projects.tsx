@@ -7,7 +7,9 @@ import {
   FaGithub, 
   FaExternalLinkAlt,
   FaCode,
-  FaFolder
+  FaFolder,
+  FaBook,
+  FaYoutube
 } from 'react-icons/fa';
 import { HiArrowRight } from 'react-icons/hi';
 import { projects } from '@/data';
@@ -147,9 +149,20 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all"
-                          aria-label="Ver proyecto en vivo"
+                          aria-label={project.id === 'flightontime' ? 'Ver video demo' : 'Ver proyecto en vivo'}
                         >
-                          <FaExternalLinkAlt size={16} />
+                          {project.id === 'flightontime' ? <FaYoutube size={18} /> : <FaExternalLinkAlt size={16} />}
+                        </a>
+                      )}
+                      {project.manualUrl && (
+                        <a
+                          href={project.manualUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all"
+                          aria-label="Ver manual de usuario"
+                        >
+                          <FaBook size={16} />
                         </a>
                       )}
                     </div>
