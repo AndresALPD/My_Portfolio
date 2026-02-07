@@ -6,12 +6,10 @@ import Image from 'next/image';
 import { 
   FaGithub, 
   FaExternalLinkAlt,
-  FaCode,
-  FaFolder,
   FaBook,
   FaYoutube
 } from 'react-icons/fa';
-import { HiArrowRight } from 'react-icons/hi';
+import { HiArrowRight, HiCollection, HiBriefcase } from 'react-icons/hi';
 import { projects } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 
@@ -121,7 +119,7 @@ export default function Projects() {
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-                      <FaFolder className="text-white/30 text-6xl" />
+                      <HiBriefcase className="text-white/30 text-6xl" />
                     </div>
                   )}
                   
@@ -242,7 +240,7 @@ export default function Projects() {
           className="mt-8 text-center"
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-full">
-            <FaCode className="text-blue-500" />
+            <HiBriefcase className="text-blue-500" />
             <span className="text-gray-600 dark:text-gray-400">
               <span className="font-bold text-gray-900 dark:text-white">{projects.length}</span> proyectos en el portafolio
             </span>

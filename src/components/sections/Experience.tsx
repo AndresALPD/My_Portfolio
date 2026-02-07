@@ -50,19 +50,24 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg">
+              <HiAcademicCap className="text-white" size={22} />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Educación
+            </h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent ml-4" />
+          </div>
+
           {education.map((edu) => (
             <div
               key={edu.id}
-              className="relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 dark:border-gray-700"
+              className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl border border-gray-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300 hover:-translate-y-1"
             >
-              {/* Ícono decorativo */}
-              <div className="absolute -top-5 left-6 sm:left-8 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg">
-                <HiAcademicCap className="text-white" size={22} />
-              </div>
-
-              <div className="mt-3">
+              <div>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {edu.degree} en {edu.field}
                   </h3>
                   <div className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
@@ -102,9 +107,7 @@ export default function Experience() {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Certificaciones
             </h3>
-            <span className="ml-auto px-3 py-1 text-sm font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">
-              {certifications.length}
-            </span>
+            <div className="flex-1 h-px bg-gradient-to-r from-green-500/50 via-emerald-400/30 to-transparent ml-4" />
           </div>
         </motion.div>
 
@@ -186,7 +189,7 @@ export default function Experience() {
                             <h4 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors leading-tight">
                               {cert.name}
                             </h4>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-sm text-green-600 dark:text-green-400 font-semibold mt-1">
                               {cert.issuer}
                             </p>
                             <div className="flex items-center gap-1 mt-2 text-xs text-gray-400 dark:text-gray-500">
@@ -233,7 +236,7 @@ export default function Experience() {
                             <h4 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors leading-tight">
                               {cert.name}
                             </h4>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">
                               {cert.issuer}
                             </p>
                             <div className="flex items-center gap-1 mt-2 text-xs text-gray-400 dark:text-gray-500">

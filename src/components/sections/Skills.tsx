@@ -163,11 +163,9 @@ export default function Skills() {
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-full">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              {skills.length}+
-            </span>
+            <FaCode className="text-blue-500" />
             <span className="text-gray-600 dark:text-gray-400">
-              Tecnologías dominadas
+              <span className="font-bold text-gray-900 dark:text-white">{skills.length}</span> tecnologías dominadas
             </span>
           </div>
         </motion.div>
