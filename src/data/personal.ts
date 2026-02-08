@@ -74,6 +74,6 @@ export const navItems: NavItem[] = [
   { id: 'about', label: 'Sobre Mí', href: '#about' },
   { id: 'skills', label: 'Habilidades', href: '#skills' },
   { id: 'projects', label: 'Proyectos', href: '#projects' },
-  { id: 'experience', label: 'Experiencia', href: '#experience' },
+  { id: 'experience', label: 'Educación', href: '#experience' },
   { id: 'contact', label: 'Contacto', href: '#contact' },
 ];

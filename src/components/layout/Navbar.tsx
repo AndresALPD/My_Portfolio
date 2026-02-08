@@ -2,7 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { HiMenu, HiX } from 'react-icons/hi';
+import {
+  HiArrowsExpand,
+  HiTranslate,
+  HiSun,
+  HiMoon,
+} from 'react-icons/hi';
 import { navItems, personalInfo } from '@/data';
 import { cn } from '@/lib/utils';
 
@@ -10,6 +17,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isDark, setIsDark] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [language, setLanguage] = useState<'es' | 'en'>('es');
 
   // Detectar scroll para cambiar estilo del navbar
   useEffect(() => {
@@ -56,7 +66,7 @@ export default function Navbar() {
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20 relative">
           {/* Logo */}
           <motion.a
             href="#home"
@@ -64,16 +74,22 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick('#home');
             }}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
+            className="flex items-center gap-2 ml-12"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {personalInfo.name.split(' ')[0]}
-            <span className="text-gray-800 dark:text-white">.dev</span>
+            <Image
+              src="/images/Aguila.png"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="rounded-full ring-1 ring-blue-500/60 dark:ring-blue-400/60 ring-offset-0"
+              priority
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <motion.a
                 key={item.id}
@@ -104,19 +120,45 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
-          <motion.a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('#contact');
-            }}
-            className="hidden md:inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-shadow"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contáctame
-          </motion.a>
+          {/* Action Buttons - Desktop */}
+          <div className="hidden md:flex items-center gap-1.5">
+            {/* Pantalla completa */}
+            <motion.button
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Pantalla completa"
+              title="Pantalla completa"
+            >
+              <HiArrowsExpand size={20} />
+            </motion.button>
+
+            {/* Idioma */}
+            <motion.button
+              onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+              className="h-9 px-2.5 flex items-center justify-center gap-1.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Cambiar idioma"
+              title="Cambiar idioma"
+            >
+              <HiTranslate size={20} />
+              <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>
+            </motion.button>
+
+            {/* Modo claro / oscuro */}
+            <motion.button
+              onClick={() => setIsDark(!isDark)}
+              className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={isDark ? 'Modo claro' : 'Modo oscuro'}
+              title={isDark ? 'Modo claro' : 'Modo oscuro'}
+            >
+              {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+            </motion.button>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -162,20 +204,36 @@ export default function Navbar() {
                   </motion.a>
                 ))}
                 
-                {/* CTA Button - Mobile */}
-                <motion.a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick('#contact');
-                  }}
+                {/* Action Buttons - Mobile */}
+                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.1 }}
-                  className="block w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-center font-medium rounded-xl"
+                  className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"
                 >
-                  Contáctame
-                </motion.a>
+                  <button
+                    onClick={() => setIsFullscreen(!isFullscreen)}
+                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    aria-label="Pantalla completa"
+                  >
+                    <HiArrowsExpand size={20} />
+                  </button>
+                  <button
+                    onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+                    className="h-10 px-3 flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
+                    aria-label="Cambiar idioma"
+                  >
+                    <HiTranslate size={20} />
+                    <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>
+                  </button>
+                  <button
+                    onClick={() => setIsDark(!isDark)}
+                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    aria-label={isDark ? 'Modo claro' : 'Modo oscuro'}
+                  >
+                    {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           )}
