@@ -25,14 +25,14 @@ const techCategoryMap: Record<string, string> = {
   // Frontend
   'HTML': 'frontend', 'CSS': 'frontend', 'JavaScript': 'frontend',
   'React': 'frontend', 'Tailwind CSS': 'frontend', 'Next.js': 'frontend',
-  'Bootstrap': 'frontend',
+  'Bootstrap': 'frontend', 'HTML/CSS': 'frontend',
   // Bases de datos
   'SQL Server': 'database', 'PostgreSQL': 'database', 'MySQL': 'database',
   'MongoDB': 'database',
   // Herramientas
   'Git': 'tools', 'GitHub': 'tools', 'Postman': 'tools',
   'Firebase': 'tools', 'Docker': 'tools', 'Maven': 'tools',
-  'Swagger': 'tools', 'OpenAI API': 'tools',
+  'Swagger': 'tools', 'OpenAI API': 'tools', 'OCI': 'tools',
 };
 
 // Colores por categoría (mismos que en Skills)

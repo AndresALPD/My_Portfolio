@@ -14,7 +14,7 @@ export const projects: Project[] = [
     Incluye módulos de registro de niños, control de asistencia, 
     comunicación con padres y gestión de actividades educativas.`,
     image: '/images/Kindercare.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'JWT', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQL Server', 'Docker'],
+    technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'JWT', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'SQL Server', 'Docker'],
     liveUrl: 'https://kinder-care.onrender.com/',
     githubUrl: 'https://github.com/auditore22/kinder-care',
     manualUrl: 'https://www.canva.com/design/DAGg6MBOV-Y/vQkv9DQgfTkw7hZZ2Pxw_Q/edit?utm_content=DAGg6MBOV-Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     longDescription: `Sistema de prediccion de vuelos que permite a los usuarios 
     predecir y ver el resultado de sus vuelos y gestionar sus itinerarios de viaje.`,
     image: '/images/FlightOnTime.jpg',
-    technologies: ['Java', 'Python', 'Spring Boot', 'FastAPI', 'RESTful APIs', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'Maven', 'Swagger'],
+    technologies: ['Java', 'Python', 'Spring Boot', 'FastAPI', 'HTML/CSS', 'JavaScript', 'MySQL', 'OCI', 'Swagger'],
     liveUrl: 'https://www.youtube.com/watch?v=giZTLpvU9Go',
     githubUrl: 'https://github.com/AndresALPD/FlightOnTime',
     featured: true,
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     tableros personalizables, listas de tareas, tarjetas con 
     descripciones y sistema de drag & drop.`,
     image: '/images/Trello.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'RESTful APIs', 'JWT', 'HTML', 'CSS', 'JavaScript', 'SQL Server', 'Swagger'],
+    technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'JWT', 'HTML/CSS', 'JavaScript', 'SQL Server', 'Swagger'],
     githubUrl: 'https://github.com/AndresALPD/Trello',
     featured: false,
     date: '2025-09',
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     utilizando MongoDB para demostrar el manejo de bases de datos 
     NoSQL y arquitecturas escalables.`,
     image: '/images/KinderNoSQL.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'MongoDB'],
+    technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'MongoDB'],
     githubUrl: 'https://github.com/OscarNZ13/Kinder_La_Granja-NoSQL',
     featured: false,
     date: '2025-05',
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     catálogo de productos, sistema de carrito, gestión de pedidos 
     y panel de administración de inventario.`,
     image: '/images/TiendaBazar.jpg',
-    technologies: ['C#', '.NET', 'ASP.NET Core', 'Entity Framework', 'MVC', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQL Server'],
+    technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'SQL Server'],
     githubUrl: 'https://github.com/AndresALPD/TiendaBazar',
     featured: false,
     date: '2024-09',
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     publicación de posts, sistema de likes, comentarios, 
     seguimiento de usuarios y feed personalizado.`,
     image: '/images/XClon.jpg',
-    technologies: ['PHP', 'HTML', 'CSS', 'JavaScript', 'MySQL'],
+    technologies: ['PHP', 'HTML/CSS', 'JavaScript', 'MySQL'],
     githubUrl: 'https://github.com/OscarNZ13/X_Clon',
     featured: false,
     date: '2024-05',

@@ -96,7 +96,7 @@ export const skills: Skill[] = [
   },
   {
     id: 'html5-css3',
-    name: 'HTML5 & CSS3',
+    name: 'HTML & CSS',
     category: 'frontend',
     icon: 'FaHtml5',
   },

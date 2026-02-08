@@ -19,7 +19,7 @@ const stats = [
   { id: 1, value: '4+', label: 'Años de Experiencia Académica' },
   { id: 2, value: '15+', label: 'Proyectos Completados' },
   { id: 3, value: '8+', label: 'Certificados Relevantes' },
-  { id: 4, value: '25+', label: 'Tecnologías Dominadas' },
+  { id: 4, value: '20+', label: 'Tecnologías Dominadas' },
 ];
 
 // Áreas de especialización
@@ -28,7 +28,7 @@ const specializations = [
     id: 1,
     icon: HiCode,
     title: 'Desarrollo Frontend',
-    description: 'Next.js, React, Tailwind CSS, Bootstrap, HTML5 & CSS3',
+    description: 'Next.js, React, Tailwind CSS, Bootstrap, HTML & CSS',
     color: 'from-blue-500 to-cyan-500',
   },
   {
