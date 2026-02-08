@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mapeo de iconos de redes sociales
 const socialIcons: Record<string, React.ReactNode> = {
@@ -32,33 +33,7 @@ const socialIcons: Record<string, React.ReactNode> = {
   FaPhone: <FaPhone size={20} />,
 };
 
-// Información de contacto directo
-const contactInfo = [
-  {
-    id: 'email',
-    icon: HiMail,
-    label: 'Correo Electrónico',
-    value: personalInfo.email,
-    href: `mailto:${personalInfo.email}`,
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    id: 'phone',
-    icon: HiPhone,
-    label: 'Teléfono',
-    value: personalInfo.phone || '+506 8477 5731',
-    href: `tel:${personalInfo.phone || '+50684775731'}`,
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    id: 'location',
-    icon: HiLocationMarker,
-    label: 'Ubicación',
-    value: personalInfo.location,
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalInfo.location)}`,
-    color: 'from-purple-500 to-pink-500',
-  },
-];
+// Información de contacto directo - se define dentro del componente para usar traducciones
 
 interface FormData {
   name: string;
@@ -75,7 +50,35 @@ interface FormErrors {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
+
+  const contactInfo = [
+    {
+      id: 'email',
+      icon: HiMail,
+      label: t('contact.info.email'),
+      value: personalInfo.email,
+      href: `mailto:${personalInfo.email}`,
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      id: 'phone',
+      icon: HiPhone,
+      label: t('contact.info.phone'),
+      value: personalInfo.phone || '+506 8477 5731',
+      href: `tel:${personalInfo.phone || '+50684775731'}`,
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      id: 'location',
+      icon: HiLocationMarker,
+      label: t('contact.info.location'),
+      value: personalInfo.location,
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalInfo.location)}`,
+      color: 'from-purple-500 to-pink-500',
+    },
+  ];
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -90,20 +93,20 @@ export default function Contact() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
+      newErrors.name = t('contact.validation.name');
     }
 
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!formData.email.trim() || !emailPattern.test(formData.email)) {
-      newErrors.email = 'Ingresa un correo electrónico válido';
+      newErrors.email = t('contact.validation.email');
     }
 
     if (!formData.subject.trim() || formData.subject.trim().length < 5) {
-      newErrors.subject = 'El asunto debe tener al menos 5 caracteres';
+      newErrors.subject = t('contact.validation.subject');
     }
 
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
+      newErrors.message = t('contact.validation.message');
     }
 
     setErrors(newErrors);
@@ -172,16 +175,16 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            Hablemos
+            {t('contact.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Ponte en{' '}
+            {t('contact.title.1')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Contacto
+              {t('contact.title.2')}
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente o una oportunidad laboral? No dudes en escribirme
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -233,7 +236,7 @@ export default function Contact() {
               className="bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700"
             >
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Encuéntrame en
+                {t('contact.social.title')}
               </h3>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
@@ -268,11 +271,11 @@ export default function Contact() {
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
                 </span>
                 <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                  Disponible para oportunidades
+                  {t('contact.available.title')}
                 </span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Actualmente abierto a posiciones presenciales, híbridas o remotas.
+                {t('contact.available.desc')}
               </p>
             </motion.div>
           </motion.div>
@@ -292,10 +295,10 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    Envíame un mensaje
+                    {t('contact.form.header')}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Respondo lo antes posible
+                    {t('contact.form.header.sub')}
                   </p>
                 </div>
               </div>
@@ -309,7 +312,7 @@ export default function Contact() {
                       htmlFor="name"
                       className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
                     >
-                      Nombre
+                      {t('contact.form.name.label')}
                     </label>
                     <div className="relative">
                       <HiUser
@@ -322,7 +325,7 @@ export default function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Tu nombre"
+                        placeholder={t('contact.form.name.placeholder')}
                         className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                           errors.name
                             ? 'border-red-400 focus:ring-red-500/20'
@@ -341,7 +344,7 @@ export default function Contact() {
                       htmlFor="email"
                       className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
                     >
-                      Correo Electrónico
+                      {t('contact.form.email.label')}
                     </label>
                     <div className="relative">
                       <HiMail
@@ -354,7 +357,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="tu@correo.com"
+                        placeholder={t('contact.form.email.placeholder')}
                         className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                           errors.email
                             ? 'border-red-400 focus:ring-red-500/20'
@@ -374,7 +377,7 @@ export default function Contact() {
                     htmlFor="subject"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
                   >
-                    Asunto
+                    {t('contact.form.subject.label')}
                   </label>
                   <div className="relative">
                     <HiAnnotation
@@ -387,7 +390,7 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="¿De qué quieres hablar?"
+                      placeholder={t('contact.form.subject.placeholder')}
                       className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                         errors.subject
                           ? 'border-red-400 focus:ring-red-500/20'
@@ -406,7 +409,7 @@ export default function Contact() {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
                   >
-                    Mensaje
+                    {t('contact.form.message.label')}
                   </label>
                   <textarea
                     id="message"
@@ -414,7 +417,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    placeholder="Cuéntame sobre tu proyecto u oportunidad..."
+                    placeholder={t('contact.form.message.placeholder')}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all resize-none ${
                       errors.message
                         ? 'border-red-400 focus:ring-red-500/20'
@@ -466,12 +469,12 @@ export default function Contact() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                         />
                       </svg>
-                      Enviando...
+                      {t('contact.form.sending')}
                     </>
                   ) : (
                     <>
                       <HiPaperAirplane className="rotate-90" size={20} />
-                      Enviar Mensaje
+                      {t('contact.form.send')}
                     </>
                   )}
                 </motion.button>
@@ -484,7 +487,7 @@ export default function Contact() {
                     className="flex items-center gap-2 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
                   >
                     <span className="text-green-600 dark:text-green-400 text-sm font-medium">
-                      ✓ ¡Mensaje enviado correctamente! Te responderé lo antes posible.
+                      {t('contact.form.success')}
                     </span>
                   </motion.div>
                 )}
@@ -496,7 +499,7 @@ export default function Contact() {
                     className="flex items-center gap-2 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl"
                   >
                     <span className="text-red-600 dark:text-red-400 text-sm font-medium">
-                      ✕ Hubo un error. Intenta contactarme directamente por correo.
+                      {t('contact.form.error')}
                     </span>
                   </motion.div>
                 )}

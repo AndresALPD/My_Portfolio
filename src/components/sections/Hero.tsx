@@ -14,6 +14,7 @@ import { HiSparkles, HiMail } from 'react-icons/hi';
 import { personalInfo, socialLinks } from '@/data';
 import { STAGGER_CONTAINER, FADE_IN_UP } from '@/lib/constants';
 import TypeWriter from './TypeWriter';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mapeo de iconos
 const socialIcons: Record<string, React.ReactNode> = {
@@ -26,6 +27,8 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -52,7 +55,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-medium bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full backdrop-blur-sm"
           >
             <HiSparkles className="text-yellow-500" />
-            <span>Disponible para nuevos proyectos</span>
+            <span>{t('hero.badge')}</span>
           </motion.div>
 
           {/* Título principal */}
@@ -60,7 +63,7 @@ export default function Hero() {
             variants={FADE_IN_UP}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            <span className="text-gray-900 dark:text-white">Hola, soy </span>
+            <span className="text-gray-900 dark:text-white">{t('hero.greeting')}</span>
             <span className="relative">
               <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 {personalInfo.name}
@@ -97,10 +100,10 @@ export default function Hero() {
           >
             <TypeWriter
               words={[
-                personalInfo.title,
-                'Creador de experiencias digitales',
-                'Apasionado por la tecnología',
-                'Resolviendo problemas con código',
+                t('hero.typewriter.1'),
+                t('hero.typewriter.2'),
+                t('hero.typewriter.3'),
+                t('hero.typewriter.4'),
               ]}
               className="font-medium"
             />
@@ -111,7 +114,7 @@ export default function Hero() {
             variants={FADE_IN_UP}
             className="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            {personalInfo.bio}
+            {t('hero.bio')}
           </motion.p>
 
           {/* Botones CTA */}
@@ -126,7 +129,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Ver Proyectos
+                {t('hero.cta.projects')}
                 <motion.span
                   animate={{ y: [0, 4, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
@@ -145,7 +148,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <FaDownload className="group-hover:animate-bounce" />
-              Descargar CV
+              {t('hero.cta.cv')}
             </motion.a>
           </motion.div>
 
@@ -155,7 +158,7 @@ export default function Hero() {
             className="flex items-center justify-center gap-4 lg:hidden"
           >
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              Encuéntrame en:
+              {t('hero.findme')}
             </span>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
@@ -194,7 +197,7 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 2 }}
           aria-label="Scroll to next section"
         >
-          <span className="text-xs font-medium">Scroll</span>
+          <span className="text-xs font-medium">{t('hero.scroll')}</span>
           <FaArrowDown size={16} />
         </motion.button>
       </motion.div>

@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
 import { personalInfo, socialLinks, navItems } from '@/data';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mapeo de iconos de redes sociales
 const socialIcons: Record<string, React.ReactNode> = {
@@ -23,6 +24,7 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const handleNavClick = (href: string) => {
@@ -52,8 +54,7 @@ export default function Footer() {
               <span className="text-white">.dev</span>
             </motion.a>
             <p className="text-gray-400 max-w-md mb-6">
-              {personalInfo.title} apasionado por crear experiencias digitales 
-              únicas y soluciones tecnológicas innovadoras.
+              {personalInfo.title} {t('footer.description')}
             </p>
             
             {/* Contact Info */}
@@ -76,7 +77,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Enlaces Rápidos</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.id}>
@@ -88,7 +89,7 @@ export default function Footer() {
                     }}
                     className="text-gray-400 hover:text-blue-400 transition-colors"
                   >
-                    {item.label}
+                    {t(`nav.${item.id}`)}
                   </a>
                 </li>
               ))}
@@ -97,7 +98,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Sígueme o hablemos!</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.social.title')}</h3>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <motion.a
@@ -118,7 +119,7 @@ export default function Footer() {
             {/* Newsletter or CTA */}
             <div className="mt-6">
               <p className="text-sm text-gray-400 mb-3">
-                ¿Tienes un proyecto en mente?
+                {t('footer.cta.question')}
               </p>
               <motion.a
                 href="#contact"
@@ -130,7 +131,7 @@ export default function Footer() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Hablemos
+                {t('footer.cta.button')}
               </motion.a>
             </div>
           </div>
@@ -142,10 +143,10 @@ export default function Footer() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-400 text-center md:text-left">
-              © {currentYear} {personalInfo.name}. Todos los derechos reservados.
+              © {currentYear} {personalInfo.name}. {t('footer.rights')}
             </p>
             <p className="text-sm text-gray-400 flex items-center gap-1">
-              Hecho con <FaHeart className="text-red-500" size={14} /> usando Next.js & Tailwind
+              {t('footer.madewith')} <FaHeart className="text-red-500" size={14} /> {t('footer.using')}
             </p>
           </div>
         </div>

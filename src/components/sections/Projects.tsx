@@ -12,6 +12,7 @@ import {
 import { HiArrowRight, HiCollection, HiBriefcase } from 'react-icons/hi';
 import { projects } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mapeo de tecnología → categoría (consistente con Skills)
 const techCategoryMap: Record<string, string> = {
@@ -51,6 +52,7 @@ const getTechColor = (tech: string): string => {
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -67,16 +69,16 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            Mi Trabajo
+            {t('projects.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Proyectos{' '}
+            {t('projects.title.1')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Destacados
+              {t('projects.title.2')}
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Una selección de proyectos que demuestran mis habilidades y experiencia en desarrollo
+            {t('projects.subtitle')}
           </p>
         </motion.div>
 
@@ -136,7 +138,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all"
-                          aria-label="Ver código en GitHub"
+                          aria-label={t('projects.aria.github')}
                         >
                           <FaGithub size={18} />
                         </a>
@@ -147,7 +149,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all"
-                          aria-label={project.id === 'flightontime' ? 'Ver video demo' : 'Ver proyecto en vivo'}
+                          aria-label={project.id === 'flightontime' ? t('projects.aria.video') : t('projects.aria.live')}
                         >
                           {project.id === 'flightontime' ? <FaYoutube size={18} /> : <FaExternalLinkAlt size={16} />}
                         </a>
@@ -158,7 +160,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all"
-                          aria-label="Ver manual de usuario"
+                          aria-label={t('projects.aria.manual')}
                         >
                           <FaBook size={16} />
                         </a>
@@ -169,7 +171,7 @@ export default function Projects() {
                   {/* Badge de destacado */}
                   {project.featured && (
                     <div className="absolute top-3 right-3 px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-semibold rounded-full shadow-lg">
-                      Destacado
+                      {t('projects.featured')}
                     </div>
                   )}
                 </div>
@@ -180,7 +182,7 @@ export default function Projects() {
                   {project.date && (
                     <div className="mb-3">
                       <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {new Date(project.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'short' })}
+                        {new Date(project.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', { year: 'numeric', month: 'short' })}
                       </span>
                     </div>
                   )}
@@ -192,7 +194,7 @@ export default function Projects() {
 
                   {/* Descripción */}
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                    {project.description}
+                    {t(`project.${project.id}.desc`)}
                   </p>
 
                   {/* Tecnologías */}
@@ -226,7 +228,7 @@ export default function Projects() {
             className="inline-flex items-center gap-2 px-6 py-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
           >
             <FaGithub size={20} />
-            <span>Ver más proyectos en GitHub</span>
+            <span>{t('projects.github.cta')}</span>
             <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
@@ -242,7 +244,7 @@ export default function Projects() {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-full">
             <HiBriefcase className="text-blue-500" />
             <span className="text-gray-600 dark:text-gray-400">
-              <span className="font-bold text-gray-900 dark:text-white">{projects.length}</span> proyectos en el portafolio
+              <span className="font-bold text-gray-900 dark:text-white">{projects.length}</span>{t('projects.stat.suffix')}
             </span>
           </div>
         </motion.div>

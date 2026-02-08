@@ -12,6 +12,7 @@ import {
 } from 'react-icons/hi';
 import { navItems, personalInfo } from '@/data';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
   const [isDark, setIsDark] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [language, setLanguage] = useState<'es' | 'en'>('es');
+  const { language, setLanguage, t } = useLanguage();
 
   // Detectar scroll para cambiar estilo del navbar
   useEffect(() => {
@@ -43,6 +44,29 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Detectar cambios de pantalla completa
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  // Toggle pantalla completa
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch (error) {
+      console.error('Error al cambiar pantalla completa:', error);
+    }
+  };
 
   // Cerrar menú móvil al hacer click en un enlace
   const handleNavClick = (href: string) => {
@@ -107,7 +131,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {item.label}
+                {t(`nav.${item.id}`)}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
@@ -124,7 +148,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1.5">
             {/* Pantalla completa */}
             <motion.button
-              onClick={() => setIsFullscreen(!isFullscreen)}
+              onClick={toggleFullscreen}
               className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -140,8 +164,8 @@ export default function Navbar() {
               className="h-9 px-2.5 flex items-center justify-center gap-1.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Cambiar idioma"
-              title="Cambiar idioma"
+              aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             >
               <HiTranslate size={20} />
               <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>
@@ -200,7 +224,7 @@ export default function Navbar() {
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     )}
                   >
-                    {item.label}
+                    {t(`nav.${item.id}`)}
                   </motion.a>
                 ))}
                 
@@ -212,7 +236,7 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"
                 >
                   <button
-                    onClick={() => setIsFullscreen(!isFullscreen)}
+                    onClick={toggleFullscreen}
                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     aria-label="Pantalla completa"
                   >
@@ -221,7 +245,7 @@ export default function Navbar() {
                   <button
                     onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
                     className="h-10 px-3 flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
-                    aria-label="Cambiar idioma"
+                    aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
                   >
                     <HiTranslate size={20} />
                     <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>

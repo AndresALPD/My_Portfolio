@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar, Footer, GlobalBackground } from "@/components/layout";
 import { SITE_CONFIG } from "@/lib/constants";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,12 +48,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}
       >
-        <GlobalBackground />
-        <Navbar />
-        <main className="relative z-10 min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <GlobalBackground />
+          <Navbar />
+          <main className="relative z-10 min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

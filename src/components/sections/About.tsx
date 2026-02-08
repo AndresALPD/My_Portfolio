@@ -13,48 +13,51 @@ import {
 } from 'react-icons/hi';
 import { personalInfo } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
-
-// Estadísticas del desarrollador
-const stats = [
-  { id: 1, value: '4+', label: 'Años de Experiencia Académica' },
-  { id: 2, value: '15+', label: 'Proyectos Completados' },
-  { id: 3, value: '8+', label: 'Certificados Relevantes' },
-  { id: 4, value: '20+', label: 'Tecnologías Dominadas' },
-];
-
-// Áreas de especialización
-const specializations = [
-  {
-    id: 1,
-    icon: HiCode,
-    title: 'Desarrollo Frontend',
-    description: 'Next.js, React, Tailwind CSS, Bootstrap, HTML & CSS',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    id: 2,
-    icon: HiDatabase,
-    title: 'Desarrollo Backend',
-    description: 'ASP.NET Core, Spring Boot, Node.js, FastAPI',
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    id: 3,
-    icon: HiCloud,
-    title: 'Nube y DevOps',
-    description: 'OCI, Docker, Firebase, Git, GitHub',
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    id: 4,
-    icon: HiLightningBolt,
-    title: 'Bases de Datos',
-    description: 'SQL Server, MySQL, PostgreSQL, MongoDB',
-    color: 'from-orange-500 to-amber-500',
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+
+  // Estadísticas del desarrollador
+  const stats = [
+    { id: 1, value: '4+', label: t('about.stat.1.label') },
+    { id: 2, value: '15+', label: t('about.stat.2.label') },
+    { id: 3, value: '8+', label: t('about.stat.3.label') },
+    { id: 4, value: '20+', label: t('about.stat.4.label') },
+  ];
+
+  // Áreas de especialización
+  const specializations = [
+    {
+      id: 1,
+      icon: HiCode,
+      title: t('about.spec.frontend'),
+      description: t('about.spec.frontend.desc'),
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      id: 2,
+      icon: HiDatabase,
+      title: t('about.spec.backend'),
+      description: t('about.spec.backend.desc'),
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      id: 3,
+      icon: HiCloud,
+      title: t('about.spec.cloud'),
+      description: t('about.spec.cloud.desc'),
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      id: 4,
+      icon: HiLightningBolt,
+      title: t('about.spec.database'),
+      description: t('about.spec.database.desc'),
+      color: 'from-orange-500 to-amber-500',
+    },
+  ];
+
   return (
     <section
       id="about"
@@ -70,16 +73,16 @@ export default function About() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            Conóceme
+            {t('about.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Sobre{' '}
+            {t('about.title.1')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Mí
+              {t('about.title.2')}
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Desarrollador apasionado por crear soluciones digitales innovadoras
+            {t('about.subtitle')}
           </p>
         </motion.div>
 
@@ -126,7 +129,7 @@ export default function About() {
                     B1
                   </span>
                   <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Nivel de Inglés
+                    {t('about.englishLevel')}
                   </span>
                 </div>
               </motion.div>
@@ -144,7 +147,7 @@ export default function About() {
                     22
                   </span>
                   <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Años de Edad
+                    {t('about.age')}
                   </span>
                 </div>
               </motion.div>
@@ -170,7 +173,7 @@ export default function About() {
                 {personalInfo.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                {personalInfo.linkedinBio}
+                {t('about.linkedinBio')}
               </p>
             </div>
 
@@ -200,7 +203,7 @@ export default function About() {
                 whileTap={{ scale: 0.95 }}
               >
                 <HiDownload size={18} />
-                Descargar CV
+                {t('about.cta.cv')}
               </motion.a>
               <motion.a
                 href="#contact"
@@ -208,7 +211,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contáctame
+                {t('about.cta.contact')}
               </motion.a>
             </div>
           </motion.div>

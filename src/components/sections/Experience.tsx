@@ -9,14 +9,17 @@ import {
 } from 'react-icons/hi';
 import { education, certifications } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
-
-// Formatear fecha
-const formatDate = (dateStr: string): string => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('es-ES', { year: 'numeric', month: 'short' });
-};
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Experience() {
+  const { t, language } = useLanguage();
+
+  // Formatear fecha
+  const formatDate = (dateStr: string): string => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', { year: 'numeric', month: 'short' });
+  };
+
   return (
     <section id="experience" className="relative py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
@@ -29,16 +32,16 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            Mi Trayectoria
+            {t('experience.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Educación y{' '}
+            {t('experience.title.1')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Certificaciones
+              {t('experience.title.2')}
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Mi formación académica y certificaciones que respaldan mis conocimientos
+            {t('experience.subtitle')}
           </p>
         </motion.div>
 
@@ -55,7 +58,7 @@ export default function Experience() {
               <HiAcademicCap className="text-white" size={22} />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Educación
+              {t('experience.education')}
             </h3>
             <div className="flex-1 h-px bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent ml-4" />
           </div>
@@ -68,12 +71,12 @@ export default function Experience() {
               <div>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {edu.degree} en {edu.field}
+                    {t('experience.degree')} {t('experience.in')} {t('experience.field')}
                   </h3>
                   <div className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     <HiCalendar size={16} />
                     <span>
-                      {formatDate(edu.startDate)} — {edu.endDate ? formatDate(edu.endDate) : 'Presente'}
+                      {formatDate(edu.startDate)} — {edu.endDate ? formatDate(edu.endDate) : t('experience.present')}
                     </span>
                   </div>
                 </div>
@@ -84,7 +87,7 @@ export default function Experience() {
 
                 {edu.description && (
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {edu.description}
+                    {t('experience.edu.desc')}
                   </p>
                 )}
               </div>
@@ -105,7 +108,7 @@ export default function Experience() {
               <HiBadgeCheck className="text-white" size={22} />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Certificaciones
+              {t('experience.certifications')}
             </h3>
             <div className="flex-1 h-px bg-gradient-to-r from-green-500/50 via-emerald-400/30 to-transparent ml-4" />
           </div>
@@ -203,7 +206,7 @@ export default function Experience() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all"
-                              aria-label={`Ver credencial de ${cert.name}`}
+                              aria-label={`${t('experience.aria.credential')} ${cert.name}`}
                             >
                               <HiExternalLink size={18} />
                             </a>
@@ -250,7 +253,7 @@ export default function Experience() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all"
-                              aria-label={`Ver credencial de ${cert.name}`}
+                              aria-label={`${t('experience.aria.credential')} ${cert.name}`}
                             >
                               <HiExternalLink size={18} />
                             </a>
@@ -276,7 +279,7 @@ export default function Experience() {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-full">
             <HiBadgeCheck className="text-green-500" />
             <span className="text-gray-600 dark:text-gray-400">
-              <span className="font-bold text-gray-900 dark:text-white">{certifications.length}</span> certificaciones obtenidas
+              <span className="font-bold text-gray-900 dark:text-white">{certifications.length}</span>{t('experience.stat.suffix')}
             </span>
           </div>
         </motion.div>

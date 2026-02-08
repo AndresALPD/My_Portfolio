@@ -33,6 +33,7 @@ import {
 } from 'react-icons/si';
 import { skills, skillCategories, getSkillsByCategory } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mapeo de iconos
 const skillIcons: Record<string, React.ReactNode> = {
@@ -65,6 +66,8 @@ const skillIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="skills"
@@ -80,16 +83,16 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            Mis Herramientas
+            {t('skills.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Habilidades{' '}
+            {t('skills.title.1')}{' '}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Tecnológicas
+              {t('skills.title.2')}
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Stack tecnológico que utilizo para diseñar y desarrollar soluciones escalables y mantenibles
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 
@@ -110,7 +113,7 @@ export default function Skills() {
                 <div className="flex items-center gap-3 mb-6 px-2">
                   <div className={`w-1 h-8 rounded-full bg-gradient-to-b ${category.color}`} />
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
-                    {category.label}
+                    {t(`skills.cat.${category.id}`)}
                   </h3>
                   <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
                 </div>
@@ -169,7 +172,7 @@ export default function Skills() {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-full">
             <FaCode className="text-blue-500" />
             <span className="text-gray-600 dark:text-gray-400">
-              <span className="font-bold text-gray-900 dark:text-white">{skills.length}</span> tecnologías dominadas
+              <span className="font-bold text-gray-900 dark:text-white">{skills.length}</span>{t('skills.stat.suffix')}
             </span>
           </div>
         </motion.div>
