@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import {
   HiMail,
   HiPhone,
@@ -72,6 +73,7 @@ interface FormErrors {
 }
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -124,14 +126,21 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Construir mailto con los datos del formulario
-      const mailtoSubject = encodeURIComponent(formData.subject);
-      const mailtoBody = encodeURIComponent(
-        `Nombre: ${formData.name}\nCorreo: ${formData.email}\n\n${formData.message}`
-      );
-      window.open(
-        `mailto:${personalInfo.email}?subject=${mailtoSubject}&body=${mailtoBody}`,
-        '_self'
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'andresalpizar03@gmail.com',
+        },
+        publicKey
       );
 
       setSubmitStatus('success');
@@ -140,7 +149,6 @@ export default function Contact() {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      // Resetear estado después de 5 segundos
       setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
@@ -469,7 +477,7 @@ export default function Contact() {
                     className="flex items-center gap-2 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
                   >
                     <span className="text-green-600 dark:text-green-400 text-sm font-medium">
-                      ✓ Se ha abierto tu cliente de correo. ¡Gracias por contactarme!
+                      ✓ ¡Mensaje enviado correctamente! Te responderé lo antes posible.
                     </span>
                   </motion.div>
                 )}
