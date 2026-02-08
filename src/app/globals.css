@@ -70,3 +70,29 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(59, 130, 246, 0.5);
 }
+
+/* Modo pantalla completa - mantener fondo oscuro */
+html:fullscreen {
+  background: #0a0a0a;
+}
+
+html:fullscreen body {
+  background: #0a0a0a;
+}
+
+::backdrop {
+  background: #0a0a0a;
+}
+
+/* Prefijos para compatibilidad con navegadores */
+html:-webkit-full-screen {
+  background: #0a0a0a;
+}
+
+html:-moz-full-screen {
+  background: #0a0a0a;
+}
+
+html:-ms-fullscreen {
+  background: #0a0a0a;
+}

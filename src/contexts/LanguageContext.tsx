@@ -288,8 +288,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // ── Contact ──
     'contact.badge': 'Let\'s Talk',
-    'contact.title.1': 'Get in',
-    'contact.title.2': 'Touch',
+    'contact.title.1': 'Contact',
+    'contact.title.2': 'Me',
     'contact.subtitle': 'Have a project in mind or a job opportunity? Don\'t hesitate to reach out',
     'contact.info.email': 'Email',
     'contact.info.phone': 'Phone',
