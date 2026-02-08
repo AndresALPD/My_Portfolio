@@ -4,11 +4,11 @@
 
 // Metadatos del sitio
 export const SITE_CONFIG = {
-  name: 'Mi Portafolio',
+  name: 'Andrés Alpízar | Software Developer',
   description: 'Portafolio de desarrollador Full Stack - Creando experiencias digitales únicas',
   url: 'https://miportafolio.com',
   ogImage: '/images/og-image.jpg',
-  author: 'Tu Nombre',
+  author: 'Andrés Alpízar',
   twitterHandle: '@tuusuario',
 };
 

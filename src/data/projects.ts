@@ -78,20 +78,6 @@ export const projects: Project[] = [
     date: '2024-09',
   },
   {
-    id: 'xclon',
-    title: 'XClon',
-    description:
-      'Clon de la red social X (Twitter) con funcionalidades de posts, likes, comentarios y seguimiento de usuarios.',
-    longDescription: `Réplica de la red social X con características como 
-    publicación de posts, sistema de likes, comentarios, 
-    seguimiento de usuarios y feed personalizado.`,
-    image: '/images/XClon.jpg',
-    technologies: ['PHP', 'HTML/CSS', 'JavaScript', 'MySQL'],
-    githubUrl: 'https://github.com/OscarNZ13/X_Clon',
-    featured: false,
-    date: '2024-05',
-  },
-  {
     id: 'portfolio',
     title: 'Portfolio',
     description:
@@ -105,6 +91,20 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/AndresALPD/Portfolio',
     featured: false,
     date: '2026-03',
+  },
+  {
+    id: 'xclon',
+    title: 'XClon',
+    description:
+      'Clon de la red social X (Twitter) con funcionalidades de posts, likes, comentarios y seguimiento de usuarios.',
+    longDescription: `Réplica de la red social X con características como 
+    publicación de posts, sistema de likes, comentarios, 
+    seguimiento de usuarios y feed personalizado.`,
+    image: '/images/XClon.jpg',
+    technologies: ['PHP', 'HTML/CSS', 'JavaScript', 'MySQL'],
+    githubUrl: 'https://github.com/OscarNZ13/X_Clon',
+    featured: false,
+    date: '2024-05',
   },
   {
     id: 'agenteia',
