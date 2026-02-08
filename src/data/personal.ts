@@ -55,6 +55,12 @@ export const socialLinks: SocialLink[] = [
     id: 'whatsapp',
     name: 'WhatsApp',
     url: 'https://wa.me/50684775731',
+    icon: 'FaWhatsapp',
+  },
+  {
+    id: 'phone',
+    name: 'Teléfono',
+    url: 'tel:+50684775731',
     icon: 'FaPhone',
   },
 ];

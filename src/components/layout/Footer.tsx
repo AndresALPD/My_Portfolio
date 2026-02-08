@@ -6,6 +6,7 @@ import {
   FaLinkedin, 
   FaTelegram,
   FaPhone,
+  FaWhatsapp,
   FaHeart 
 } from 'react-icons/fa';
 import { HiMail, HiLocationMarker } from 'react-icons/hi';
@@ -17,6 +18,7 @@ const socialIcons: Record<string, React.ReactNode> = {
   FaLinkedin: <FaLinkedin size={20} />,
   FaTelegram: <FaTelegram size={20} />,
   HiMail: <HiMail size={20} />,
+  FaWhatsapp: <FaWhatsapp size={20} />,
   FaPhone: <FaPhone size={18} />,
 };
 

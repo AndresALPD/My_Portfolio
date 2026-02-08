@@ -17,6 +17,7 @@ import {
   FaGithub,
   FaTelegram,
   FaPhone,
+  FaWhatsapp,
 } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
@@ -27,6 +28,7 @@ const socialIcons: Record<string, React.ReactNode> = {
   FaGithub: <FaGithub size={22} />,
   HiMail: <HiMail size={22} />,
   FaTelegram: <FaTelegram size={22} />,
+  FaWhatsapp: <FaWhatsapp size={22} />,
   FaPhone: <FaPhone size={20} />,
 };
 
@@ -139,6 +141,11 @@ export default function Contact() {
           subject: formData.subject,
           message: formData.message,
           to_email: 'andresalpizar03@gmail.com',
+          time: new Date().toLocaleString('es-CR', {
+            dateStyle: 'long',
+            timeStyle: 'short',
+            timeZone: 'America/Costa_Rica',
+          }),
         },
         publicKey
       );
@@ -406,7 +413,7 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={5}
+                    rows={4}
                     placeholder="Cuéntame sobre tu proyecto u oportunidad..."
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all resize-none ${
                       errors.message
