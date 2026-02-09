@@ -90,7 +90,7 @@ export default function Navbar() {
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20 relative">
+        <div className="flex items-center justify-between h-16 lg:h-20 relative">
           {/* Logo */}
           <motion.a
             href="#home"
@@ -113,7 +113,7 @@ export default function Navbar() {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <motion.a
                 key={item.id}
@@ -145,15 +145,15 @@ export default function Navbar() {
           </div>
 
           {/* Action Buttons - Desktop */}
-          <div className="hidden md:flex items-center gap-1.5">
+          <div className="hidden lg:flex items-center gap-1.5">
             {/* Pantalla completa */}
             <motion.button
               onClick={toggleFullscreen}
               className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Pantalla completa"
-              title="Pantalla completa"
+              aria-label={t('nav.fullscreen')}
+              title={t('nav.fullscreen')}
             >
               <HiArrowsExpand size={20} />
             </motion.button>
@@ -164,11 +164,11 @@ export default function Navbar() {
               className="h-9 px-2.5 flex items-center justify-center gap-1.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-              title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              aria-label={language === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}
+              title={language === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}
             >
               <HiTranslate size={20} />
-              <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>
+              <span className="uppercase text-xs">{language === 'es' ? 'ES' : 'EN'}</span>
             </motion.button>
 
             {/* Modo claro / oscuro */}
@@ -177,8 +177,8 @@ export default function Navbar() {
               className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label={isDark ? 'Modo claro' : 'Modo oscuro'}
-              title={isDark ? 'Modo claro' : 'Modo oscuro'}
+              aria-label={isDark ? t('nav.lightMode') : t('nav.darkMode')}
+              title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
             >
               {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
             </motion.button>
@@ -187,7 +187,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
             whileTap={{ scale: 0.9 }}
             aria-label="Toggle menu"
           >
@@ -203,7 +203,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-white dark:bg-gray-900 rounded-2xl shadow-xl mb-4"
+              className="lg:hidden overflow-hidden bg-white dark:bg-gray-900 rounded-2xl shadow-xl mb-4"
             >
               <div className="px-4 py-6 space-y-2">
                 {navItems.map((item, index) => (
@@ -238,22 +238,22 @@ export default function Navbar() {
                   <button
                     onClick={toggleFullscreen}
                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    aria-label="Pantalla completa"
+                    aria-label={t('nav.fullscreen')}
                   >
                     <HiArrowsExpand size={20} />
                   </button>
                   <button
                     onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
                     className="h-10 px-3 flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
-                    aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+                    aria-label={language === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}
                   >
                     <HiTranslate size={20} />
-                    <span className="uppercase text-xs">{language === 'es' ? 'EN' : 'ES'}</span>
+                    <span className="uppercase text-xs">{language === 'es' ? 'ES' : 'EN'}</span>
                   </button>
                   <button
                     onClick={() => setIsDark(!isDark)}
                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    aria-label={isDark ? 'Modo claro' : 'Modo oscuro'}
+                    aria-label={isDark ? t('nav.lightMode') : t('nav.darkMode')}
                   >
                     {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
                   </button>

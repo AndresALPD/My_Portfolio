@@ -54,7 +54,7 @@ export default function Footer() {
               <span className="text-white">.dev</span>
             </motion.a>
             <p className="text-gray-400 max-w-md mb-6">
-              {personalInfo.title} {t('footer.description')}
+              {t('footer.role')} {t('footer.description')}
             </p>
             
             {/* Contact Info */}

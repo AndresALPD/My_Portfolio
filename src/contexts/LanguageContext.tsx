@@ -63,6 +63,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.projects': 'Proyectos',
     'nav.experience': 'Educación',
     'nav.contact': 'Contacto',
+    'nav.fullscreen': 'Pantalla completa',
+    'nav.lightMode': 'Modo claro',
+    'nav.darkMode': 'Modo oscuro',
 
     // ── Hero ──
     'hero.badge': 'Disponible para nuevos proyectos',
@@ -95,6 +98,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.spec.cloud.desc': 'OCI, Docker, Firebase, Git, GitHub',
     'about.spec.database': 'Bases de Datos',
     'about.spec.database.desc': 'SQL Server, MySQL, PostgreSQL, MongoDB',
+    'about.role': 'Desarrollador de Software',
     'about.stat.1.label': 'Años de Experiencia Académica',
     'about.stat.2.label': 'Proyectos Completados',
     'about.stat.3.label': 'Certificados Relevantes',
@@ -181,6 +185,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.validation.message': 'El mensaje debe tener al menos 10 caracteres',
 
     // ── Footer ──
+    'footer.role': 'Desarrollador de Software',
     'footer.description': 'apasionado por crear experiencias digitales únicas y soluciones tecnológicas innovadoras.',
     'footer.quicklinks': 'Enlaces Rápidos',
     'footer.social.title': 'Sígueme o hablemos!',
@@ -194,11 +199,14 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // ── Navbar ──
     'nav.home': 'Home',
-    'nav.about': 'About',
+    'nav.about': 'About Me',
     'nav.skills': 'Skills',
     'nav.projects': 'Projects',
     'nav.experience': 'Education',
     'nav.contact': 'Contact',
+    'nav.fullscreen': 'Fullscreen',
+    'nav.lightMode': 'Light mode',
+    'nav.darkMode': 'Dark mode',
 
     // ── Hero ──
     'hero.badge': 'Available for new projects',
@@ -231,6 +239,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.spec.cloud.desc': 'OCI, Docker, Firebase, Git, GitHub',
     'about.spec.database': 'Databases',
     'about.spec.database.desc': 'SQL Server, MySQL, PostgreSQL, MongoDB',
+    'about.role': 'Software Developer',
     'about.stat.1.label': 'Years of Academic Experience',
     'about.stat.2.label': 'Completed Projects',
     'about.stat.3.label': 'Relevant Certifications',
@@ -317,6 +326,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.validation.message': 'Message must be at least 10 characters',
 
     // ── Footer ──
+    'footer.role': 'Software Developer',
     'footer.description': 'passionate about creating unique digital experiences and innovative technological solutions.',
     'footer.quicklinks': 'Quick Links',
     'footer.social.title': 'Follow me or let\'s chat!',
