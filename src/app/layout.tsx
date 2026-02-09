@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar, Footer, GlobalBackground } from "@/components/layout";
+import { Navbar, Footer, GlobalBackground, CustomCursor } from "@/components/layout";
 import { SITE_CONFIG } from "@/lib/constants";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -50,6 +50,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <GlobalBackground />
+          <CustomCursor />
           <Navbar />
           <main className="relative z-10 min-h-screen">
             {children}

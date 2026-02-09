@@ -96,3 +96,16 @@ html:-moz-full-screen {
 html:-ms-fullscreen {
   background: #0a0a0a;
 }
+
+/* Cursor personalizado - mantener cursor nativo visible */
+* {
+  cursor: auto;
+}
+
+a, button, input[type="submit"], input[type="button"], [role="button"] {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  cursor: text;
+}
