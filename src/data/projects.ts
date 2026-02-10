@@ -13,7 +13,7 @@ export const projects: Project[] = [
     longDescription: `Plataforma integral para la gestión de jardines infantiles. 
     Incluye módulos de registro de niños, control de asistencia, 
     comunicación con padres y gestión de actividades educativas.`,
-    image: '/images/Kindercare.jpg',
+    image: '/images/kindercare.jpg',
     technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'JWT', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'SQL Server', 'Docker'],
     liveUrl: 'https://kinder-care.onrender.com/',
     githubUrl: 'https://github.com/auditore22/kinder-care',
@@ -28,7 +28,7 @@ export const projects: Project[] = [
       'Aplicación web que permite predecir retrasos de vuelos de forma intuitiva, apoyándose en inteligencia artificial y datos historicos.',
     longDescription: `Sistema de prediccion de vuelos que permite a los usuarios 
     predecir y ver el resultado de sus vuelos y gestionar sus itinerarios de viaje.`,
-    image: '/images/FlightOnTime.jpg',
+    image: '/images/flightontime.jpg',
     technologies: ['Java', 'Python', 'Spring Boot', 'FastAPI', 'HTML/CSS', 'JavaScript', 'MySQL', 'OCI', 'Swagger'],
     liveUrl: 'https://www.youtube.com/watch?v=giZTLpvU9Go',
     githubUrl: 'https://github.com/AndresALPD/FlightOnTime',
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     longDescription: `Réplica funcional de Trello con características como 
     tableros personalizables, listas de tareas, tarjetas con 
     descripciones y sistema de drag & drop.`,
-    image: '/images/Trello.jpg',
+    image: '/images/trello.jpg',
     technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'JWT', 'HTML/CSS', 'JavaScript', 'SQL Server', 'Swagger'],
     githubUrl: 'https://github.com/AndresALPD/Trello',
     featured: false,
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     longDescription: `Implementación alternativa del sistema KinderCare 
     utilizando MongoDB para demostrar el manejo de bases de datos 
     NoSQL y arquitecturas escalables.`,
-    image: '/images/KinderNoSQL.jpg',
+    image: '/images/kindernosql.jpg',
     technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'MongoDB'],
     githubUrl: 'https://github.com/OscarNZ13/Kinder_La_Granja-NoSQL',
     featured: false,
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     longDescription: `Plataforma de comercio electrónico completa con 
     catálogo de productos, sistema de carrito, gestión de pedidos 
     y panel de administración de inventario.`,
-    image: '/images/TiendaBazar.jpg',
+    image: '/images/tiendabazar.jpg',
     technologies: ['C#', 'ASP.NET Core', 'Entity Framework', 'HTML/CSS', 'JavaScript', 'Bootstrap', 'SQL Server'],
     githubUrl: 'https://github.com/AndresALPD/TiendaBazar',
     featured: false,
@@ -85,9 +85,9 @@ export const projects: Project[] = [
     longDescription: `Portafolio personal construido con las últimas tecnologías. 
     Incluye animaciones con Framer Motion, diseño responsive 
     y optimización SEO completa.`,
-    image: '/images/Portfolio.jpg',
+    image: '/images/portfolio.jpg',
     technologies: ['TypeScript', 'Node.js', 'Next.js', 'React', 'Tailwind CSS'],
-    liveUrl: 'https://andresalpizar.dev',
+    liveUrl: 'https://andres-alpd.vercel.app/',
     githubUrl: 'https://github.com/AndresALPD/Portfolio',
     featured: false,
     date: '2026-03',
@@ -100,7 +100,7 @@ export const projects: Project[] = [
     longDescription: `Réplica de la red social X con características como 
     publicación de posts, sistema de likes, comentarios, 
     seguimiento de usuarios y feed personalizado.`,
-    image: '/images/XClon.jpg',
+    image: '/images/xclon.jpg',
     technologies: ['PHP', 'HTML/CSS', 'JavaScript', 'MySQL'],
     githubUrl: 'https://github.com/OscarNZ13/X_Clon',
     featured: false,
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     longDescription: `Proyecto de IA que implementa un agente conversacional 
     utilizando modelos de lenguaje para procesar consultas 
     y generar respuestas contextuales.`,
-    image: '/images/AgenteIA.jpg',
+    image: '/images/agenteia.jpg',
     technologies: ['Python', 'OpenAI API'],
     githubUrl: 'https://github.com/AndresALPD/Asistente-de-IA',
     featured: false,

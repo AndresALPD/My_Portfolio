@@ -102,7 +102,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
           >
             <Image
-              src="/images/Aguila.jpg"
+              src="/images/aguila.jpg"
               alt="Logo"
               width={50}
               height={50}
