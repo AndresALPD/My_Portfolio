@@ -64,6 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.experience': 'Educación',
     'nav.contact': 'Contacto',
     'nav.fullscreen': 'Pantalla completa',
+    'nav.exitFullscreen': 'Salir de pantalla completa',
     'nav.lightMode': 'Modo claro',
     'nav.darkMode': 'Modo oscuro',
 
@@ -205,6 +206,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.experience': 'Education',
     'nav.contact': 'Contact',
     'nav.fullscreen': 'Fullscreen',
+    'nav.exitFullscreen': 'Exit fullscreen',
     'nav.lightMode': 'Light mode',
     'nav.darkMode': 'Dark mode',
 
