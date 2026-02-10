@@ -72,6 +72,54 @@ html {
   background: rgba(59, 130, 246, 0.5);
 }
 
+/* Scrollbar en modo oscuro */
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* Scrollbar en modo pantalla completa */
+html:fullscreen ::-webkit-scrollbar,
+html:-webkit-full-screen ::-webkit-scrollbar,
+html:-moz-full-screen ::-webkit-scrollbar {
+  width: 8px;
+}
+
+html:fullscreen ::-webkit-scrollbar-track,
+html:-webkit-full-screen ::-webkit-scrollbar-track,
+html:-moz-full-screen ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html:fullscreen ::-webkit-scrollbar-thumb,
+html:-webkit-full-screen ::-webkit-scrollbar-thumb,
+html:-moz-full-screen ::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+}
+
+html:fullscreen ::-webkit-scrollbar-thumb:hover,
+html:-webkit-full-screen ::-webkit-scrollbar-thumb:hover,
+html:-moz-full-screen ::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Scrollbar en modo pantalla completa + modo oscuro */
+html.dark:fullscreen ::-webkit-scrollbar-thumb,
+html.dark:-webkit-full-screen ::-webkit-scrollbar-thumb,
+html.dark:-moz-full-screen ::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+html.dark:fullscreen ::-webkit-scrollbar-thumb:hover,
+html.dark:-webkit-full-screen ::-webkit-scrollbar-thumb:hover,
+html.dark:-moz-full-screen ::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
 /* Modo pantalla completa - mantener fondo según tema */
 html.dark:fullscreen {
   background: #0a0a0a;
@@ -89,13 +137,13 @@ html:fullscreen:not(.dark) body {
   background: #ffffff;
 }
 
-html.dark ~ ::backdrop,
-.dark ::backdrop {
-  background: #0a0a0a;
+/* Backdrop en fullscreen */
+html:fullscreen::backdrop {
+  background: #ffffff;
 }
 
-::backdrop {
-  background: #ffffff;
+html.dark:fullscreen::backdrop {
+  background: #0a0a0a;
 }
 
 /* Prefijos para compatibilidad con navegadores */
@@ -107,6 +155,22 @@ html:-webkit-full-screen:not(.dark) {
   background: #ffffff;
 }
 
+html.dark:-webkit-full-screen::backdrop {
+  background: #0a0a0a;
+}
+
+html:-webkit-full-screen:not(.dark)::backdrop {
+  background: #ffffff;
+}
+
+html.dark:-webkit-full-screen body {
+  background: #0a0a0a;
+}
+
+html:-webkit-full-screen:not(.dark) body {
+  background: #ffffff;
+}
+
 html.dark:-moz-full-screen {
   background: #0a0a0a;
 }
@@ -115,11 +179,43 @@ html:-moz-full-screen:not(.dark) {
   background: #ffffff;
 }
 
+html.dark:-moz-full-screen::backdrop {
+  background: #0a0a0a;
+}
+
+html:-moz-full-screen:not(.dark)::backdrop {
+  background: #ffffff;
+}
+
+html.dark:-moz-full-screen body {
+  background: #0a0a0a;
+}
+
+html:-moz-full-screen:not(.dark) body {
+  background: #ffffff;
+}
+
 html.dark:-ms-fullscreen {
   background: #0a0a0a;
 }
 
 html:-ms-fullscreen:not(.dark) {
+  background: #ffffff;
+}
+
+html.dark:-ms-fullscreen::backdrop {
+  background: #0a0a0a;
+}
+
+html:-ms-fullscreen:not(.dark)::backdrop {
+  background: #ffffff;
+}
+
+html.dark:-ms-fullscreen body {
+  background: #0a0a0a;
+}
+
+html:-ms-fullscreen:not(.dark) body {
   background: #ffffff;
 }
 

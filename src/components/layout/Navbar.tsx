@@ -43,6 +43,8 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Ejecutar inmediatamente para detectar la sección activa al cargar
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
