@@ -142,7 +142,8 @@ export default function Hero() {
             </motion.button>
 
             <motion.a
-              href={personalInfo.resume || '#contact'}
+              href="/Andres_Alpizar_Junior_Software_Developer.pdf"
+              download="Andres_Alpizar_Junior_Software_Developer.pdf"
               className="group px-8 py-4 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold rounded-full hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center justify-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
