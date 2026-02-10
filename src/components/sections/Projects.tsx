@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { 
   FaGithub, 
@@ -9,7 +9,7 @@ import {
   FaBook,
   FaYoutube
 } from 'react-icons/fa';
-import { HiArrowRight, HiCollection, HiBriefcase } from 'react-icons/hi';
+import { HiArrowRight, HiCollection, HiBriefcase, HiX } from 'react-icons/hi';
 import { projects } from '@/data';
 import { FADE_IN_UP, STAGGER_CONTAINER } from '@/lib/constants';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -52,7 +52,28 @@ const getTechColor = (tech: string): string => {
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
   const { t, language } = useLanguage();
+
+  // Manejar tecla ESC para cerrar modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+    
+    if (selectedImage) {
+      window.addEventListener('keydown', handleEsc);
+      // Prevenir scroll del body cuando modal está abierto
+      document.body.style.overflow = 'hidden';
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
 
   return (
     <section
@@ -111,7 +132,10 @@ export default function Projects() {
                 className="group relative bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Imagen del proyecto */}
-                <div className="relative h-48 sm:h-56 overflow-hidden">
+                <div 
+                  className="relative h-48 sm:h-56 overflow-hidden cursor-pointer"
+                  onClick={() => project.image && setSelectedImage({ src: project.image, title: project.title })}
+                >
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -193,7 +217,7 @@ export default function Projects() {
                   </h3>
 
                   {/* Descripción */}
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                     {t(`project.${project.id}.desc`)}
                   </p>
 
@@ -249,6 +273,58 @@ export default function Projects() {
           </div>
         </motion.div>
       </div>
+
+      {/* Modal de imagen */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md"
+            onClick={() => setSelectedImage(null)}
+          >
+            {/* Contenedor del modal */}
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex flex-col w-[85vw] max-w-6xl max-h-[80vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header: Título + Botón cerrar */}
+              <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-t-2xl border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white truncate pr-4">
+                  {selectedImage.title}
+                </h3>
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:text-white transition-all duration-200"
+                  aria-label="Cerrar imagen"
+                >
+                  <HiX size={22} />
+                </button>
+              </div>
+
+              {/* Imagen */}
+              <div className="relative flex-1 min-h-0 bg-gray-50 dark:bg-gray-950 rounded-b-2xl overflow-hidden">
+                <div className="relative w-full h-[50vh] sm:h-[55vh] md:h-[60vh]">
+                  <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.title}
+                    fill
+                    className="object-contain p-2 sm:p-4"
+                    sizes="85vw"
+                    priority
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
