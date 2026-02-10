@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar, Footer, GlobalBackground, CustomCursor } from "@/components/layout";
 import { SITE_CONFIG } from "@/lib/constants";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,10 +45,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('portfolio-theme');
+                  if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${inter.variable} font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}
+        className={`${inter.variable} font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300`}
       >
+        <ThemeProvider>
         <LanguageProvider>
           <GlobalBackground />
           <CustomCursor />
@@ -57,6 +77,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

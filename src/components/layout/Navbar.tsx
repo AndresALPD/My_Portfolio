@@ -13,14 +13,15 @@ import {
 import { navItems, personalInfo } from '@/data';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isDark, setIsDark] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { isDark, toggleTheme } = useTheme();
 
   // Detectar scroll para cambiar estilo del navbar
   useEffect(() => {
@@ -173,14 +174,14 @@ export default function Navbar() {
 
             {/* Modo claro / oscuro */}
             <motion.button
-              onClick={() => setIsDark(!isDark)}
+              onClick={toggleTheme}
               className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label={isDark ? t('nav.lightMode') : t('nav.darkMode')}
               title={isDark ? t('nav.lightMode') : t('nav.darkMode')}
             >
-              {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+              {isDark ? <HiMoon size={20} /> : <HiSun size={20} />}
             </motion.button>
           </div>
 
@@ -251,11 +252,11 @@ export default function Navbar() {
                     <span className="uppercase text-xs">{language === 'es' ? 'ES' : 'EN'}</span>
                   </button>
                   <button
-                    onClick={() => setIsDark(!isDark)}
+                    onClick={toggleTheme}
                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     aria-label={isDark ? t('nav.lightMode') : t('nav.darkMode')}
                   >
-                    {isDark ? <HiSun size={20} /> : <HiMoon size={20} />}
+                    {isDark ? <HiMoon size={20} /> : <HiSun size={20} />}
                   </button>
                 </motion.div>
               </div>

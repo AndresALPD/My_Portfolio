@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface Particle {
@@ -14,6 +14,10 @@ interface Particle {
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const getIsDark = useCallback(() => {
+    return document.documentElement.classList.contains('dark');
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -50,6 +54,7 @@ export default function AnimatedBackground() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = getIsDark();
 
       particles.forEach((particle, index) => {
         // Actualizar posición
@@ -60,10 +65,14 @@ export default function AnimatedBackground() {
         if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
 
-        // Dibujar partícula
+        // Dibujar partícula - ajustar color según tema
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
+        if (isDark) {
+          ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
+        } else {
+          ctx.fillStyle = `rgba(37, 99, 235, ${particle.opacity * 0.7})`;
+        }
         ctx.fill();
 
         // Conectar partículas cercanas
@@ -76,7 +85,11 @@ export default function AnimatedBackground() {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 150)})`;
+            if (isDark) {
+              ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 150)})`;
+            } else {
+              ctx.strokeStyle = `rgba(37, 99, 235, ${0.08 * (1 - distance / 150)})`;
+            }
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -92,7 +105,7 @@ export default function AnimatedBackground() {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [getIsDark]);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
