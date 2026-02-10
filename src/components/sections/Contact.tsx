@@ -11,6 +11,7 @@ import {
   HiUser,
   HiAnnotation,
   HiChatAlt2,
+  HiClock,
 } from 'react-icons/hi';
 import {
   FaLinkedin,
@@ -77,6 +78,14 @@ export default function Contact() {
       value: personalInfo.location,
       href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalInfo.location)}`,
       color: 'from-purple-500 to-pink-500',
+    },
+    {
+      id: 'timezone',
+      icon: HiClock,
+      label: t('contact.info.timezone'),
+      value: 'GMT-6',
+      href: 'https://time.is/Costa_Rica',
+      color: 'from-orange-500 to-amber-500',
     },
   ];
   const [formData, setFormData] = useState<FormData>({
@@ -325,6 +334,7 @@ export default function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        maxLength={50}
                         placeholder={t('contact.form.name.placeholder')}
                         className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                           errors.name
@@ -333,9 +343,20 @@ export default function Contact() {
                         }`}
                       />
                     </div>
-                    {errors.name && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>
-                    )}
+                    <div className="flex justify-between mt-1.5">
+                      {errors.name ? (
+                        <p className="text-xs text-red-500">{errors.name}</p>
+                      ) : (
+                        <span />
+                      )}
+                      <span className={`text-xs ${
+                        formData.name.length >= 40
+                          ? 'text-red-500 font-semibold'
+                          : 'text-gray-400'
+                      }`}>
+                        {formData.name.length}/50
+                      </span>
+                    </div>
                   </div>
 
                   {/* Email */}
@@ -357,6 +378,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        maxLength={50}
                         placeholder={t('contact.form.email.placeholder')}
                         className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                           errors.email
@@ -365,9 +387,20 @@ export default function Contact() {
                         }`}
                       />
                     </div>
-                    {errors.email && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>
-                    )}
+                    <div className="flex justify-between mt-1.5">
+                      {errors.email ? (
+                        <p className="text-xs text-red-500">{errors.email}</p>
+                      ) : (
+                        <span />
+                      )}
+                      <span className={`text-xs ${
+                        formData.email.length >= 30
+                          ? 'text-red-500 font-semibold'
+                          : 'text-gray-400'
+                      }`}>
+                        {formData.email.length}/50
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -390,6 +423,7 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
+                      maxLength={100}
                       placeholder={t('contact.form.subject.placeholder')}
                       className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all ${
                         errors.subject
@@ -398,9 +432,20 @@ export default function Contact() {
                       }`}
                     />
                   </div>
-                  {errors.subject && (
-                    <p className="mt-1.5 text-xs text-red-500">{errors.subject}</p>
-                  )}
+                  <div className="flex justify-between mt-1.5">
+                    {errors.subject ? (
+                      <p className="text-xs text-red-500">{errors.subject}</p>
+                    ) : (
+                      <span />
+                    )}
+                    <span className={`text-xs ${
+                      formData.subject.length >= 100
+                        ? 'text-red-500 font-semibold'
+                        : 'text-gray-400'
+                    }`}>
+                      {formData.subject.length}/100
+                    </span>
+                  </div>
                 </div>
 
                 {/* Mensaje */}
@@ -416,7 +461,8 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
+                    maxLength={1000}
+                    rows={6}
                     placeholder={t('contact.form.message.placeholder')}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 border rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-all resize-none ${
                       errors.message
@@ -430,7 +476,11 @@ export default function Contact() {
                     ) : (
                       <span />
                     )}
-                    <span className="text-xs text-gray-400">
+                    <span className={`text-xs ${
+                      formData.message.length >= 1000
+                        ? 'text-red-500 font-semibold'
+                        : 'text-gray-400'
+                    }`}>
                       {formData.message.length}/1000
                     </span>
                   </div>
