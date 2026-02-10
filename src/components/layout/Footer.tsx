@@ -37,7 +37,13 @@ export default function Footer() {
   return (
     <footer className="relative z-10 bg-gray-50 dark:bg-gray-900/50 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-800/50 transition-colors duration-300">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
@@ -136,10 +142,16 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-200 dark:border-gray-800">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="border-t border-gray-200 dark:border-gray-800"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
@@ -150,7 +162,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
