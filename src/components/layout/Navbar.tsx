@@ -235,13 +235,6 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100 dark:border-gray-800"
                 >
                   <button
-                    onClick={toggleFullscreen}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    aria-label={isFullscreen ? t('nav.exitFullscreen') : t('nav.fullscreen')}
-                  >
-                    {isFullscreen ? <HiOutlineArrowsPointingIn size={20} /> : <HiArrowsExpand size={20} />}
-                  </button>
-                  <button
                     onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
                     className="h-10 px-3 flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
                     aria-label={language === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}

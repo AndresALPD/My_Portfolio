@@ -156,12 +156,12 @@ export default function Hero() {
           {/* Redes Sociales - Solo visible en móvil/tablet, oculto en desktop donde hay barra lateral */}
           <motion.div
             variants={FADE_IN_UP}
-            className="flex items-center justify-center gap-4 lg:hidden"
+            className="flex flex-col items-center justify-center gap-4 lg:hidden"
           >
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {t('hero.findme')}
             </span>
-            <div className="flex gap-3">
+            <div className="grid grid-cols-3 sm:flex gap-3 justify-items-center">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.id}
