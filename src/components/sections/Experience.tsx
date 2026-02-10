@@ -220,15 +220,37 @@ export default function Experience() {
                       <div className="w-5 h-5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 shadow-lg ring-4 ring-white dark:ring-gray-900" />
                     </div>
 
-                    {/* Espacio del otro lado */}
-                    <div className="w-[calc(50%-3.5rem)]" />
+                    {/* Año en el lado opuesto */}
+                    <div className={`w-[calc(50%-3.5rem)] flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
+                      <div className="inline-flex flex-col items-center">
+                        <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-full px-3 py-1.5 backdrop-blur-sm shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                          <span className="text-lg font-bold bg-gradient-to-br from-green-500 to-emerald-600 dark:from-green-400 dark:to-emerald-500 bg-clip-text text-transparent">
+                            {new Date(cert.date).getFullYear()}
+                          </span>
+                        </div>
+                        <div className="w-8 h-0.5 bg-gradient-to-r from-green-500/50 to-emerald-500/50 rounded-full mt-1" />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Layout mobile: lineal */}
                   <div className="md:hidden flex items-start gap-4 pl-2">
-                    {/* Nodo */}
-                    <div className="relative z-10 flex-shrink-0 mt-4">
-                      <div className="w-3.5 h-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 shadow-sm ring-3 ring-white dark:ring-gray-900 ml-[0.2rem]" />
+                    {/* Año y Nodo */}
+                    <div className="flex-shrink-0 flex flex-col items-center gap-2">
+                      {/* Año */}
+                      <div className="flex flex-col items-center">
+                        <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-full px-2.5 py-1 backdrop-blur-sm shadow-[0_0_15px_rgba(34,197,94,0.25)]">
+                          <span className="text-sm font-bold bg-gradient-to-br from-green-500 to-emerald-600 dark:from-green-400 dark:to-emerald-500 bg-clip-text text-transparent">
+                            {new Date(cert.date).getFullYear()}
+                          </span>
+                        </div>
+                        <div className="w-5 h-0.5 bg-gradient-to-r from-green-500/50 to-emerald-500/50 rounded-full" />
+                      </div>
+                      
+                      {/* Nodo */}
+                      <div className="relative z-10 mt-1">
+                        <div className="w-3.5 h-3.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 shadow-sm ring-3 ring-white dark:ring-gray-900 ml-[0.2rem]" />
+                      </div>
                     </div>
 
                     {/* Tarjeta */}
