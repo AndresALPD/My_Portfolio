@@ -18,7 +18,7 @@ export const personalInfo: PersonalInfo = {
 Especializado en la creación de soluciones robustas con .NET y Java. Cuento con experiencia sólida desarrollando APIs REST, arquitecturas en capas y gestión de bases de datos relacionales. Mi enfoque principal es construir software escalable, integrando lógica de negocio eficiente y patrones de diseño como MVC.
 
 Apasionado por las buenas prácticas y el aprendizaje continuo, busco mi primera oportunidad profesional para aportar valor técnico y seguir evolucionando en entornos de alto nivel.`,
-  avatar: '/images/Avatar.jpg',
+  avatar: '/images/avatar.jpg',
   resume: '/documents/cv.pdf',
 };
 
