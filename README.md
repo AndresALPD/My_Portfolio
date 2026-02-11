@@ -1,4 +1,4 @@
-# Andrés Alpízar | Portafolio de Desarrollador Full Stack
+# Andrés Alpízar | Portafolio de Desarrollador de Software
 
 Portafolio profesional moderno, responsivo y bilingüe, construido con Next.js 15, TypeScript y Tailwind CSS. Desplegado en Vercel.
 
