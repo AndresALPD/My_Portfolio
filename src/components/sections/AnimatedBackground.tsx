@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Particle {
@@ -14,12 +14,23 @@ interface Particle {
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar si es móvil (mismo breakpoint que el menú hamburguesa: lg = 1024px)
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const getIsDark = useCallback(() => {
     return document.documentElement.classList.contains('dark');
   }, []);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -36,7 +47,7 @@ export default function AnimatedBackground() {
 
     // Crear partículas
     const particles: Particle[] = [];
-    const particleCount = 85;
+    const particleCount = 30;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -105,7 +116,12 @@ export default function AnimatedBackground() {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationId);
     };
-  }, [getIsDark]);
+  }, [getIsDark, isMobile]);
+
+  // En móvil, solo renderizar fondo limpio
+  if (isMobile) {
+    return <div className="absolute inset-0" />;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -138,7 +154,7 @@ export default function AnimatedBackground() {
         className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full"
         style={{
           background:
-            'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%)',
+            'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
         }}
         animate={{
           scale: [1.2, 1, 1.2],
