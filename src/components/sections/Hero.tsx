@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 import { 
   FaGithub, 
   FaLinkedin, 
@@ -28,6 +29,30 @@ const socialIcons: Record<string, React.ReactNode> = {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const nameRef = useRef<HTMLSpanElement>(null);
+  const [showUnderline, setShowUnderline] = useState(true);
+
+  useEffect(() => {
+    const checkLineBreak = () => {
+      if (nameRef.current) {
+        const lineHeight = parseFloat(getComputedStyle(nameRef.current).lineHeight);
+        const actualHeight = nameRef.current.offsetHeight;
+        // Si la altura real es mayor que 1.5 veces la altura de línea, está en múltiples líneas
+        setShowUnderline(actualHeight <= lineHeight * 1.5);
+      }
+    };
+
+    // Verificar al montar
+    checkLineBreak();
+
+    // Verificar cuando cambie el tamaño de la ventana
+    window.addEventListener('resize', checkLineBreak);
+    
+    // Verificar después de que las fuentes se carguen
+    document.fonts.ready.then(checkLineBreak);
+
+    return () => window.removeEventListener('resize', checkLineBreak);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -65,11 +90,15 @@ export default function Hero() {
           >
             <span className="text-gray-900 dark:text-white">{t('hero.greeting')}</span>
             <span className="relative">
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span 
+                ref={nameRef}
+                className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
+              >
                 {personalInfo.name}
               </span>
               {/* Decoración underline */}
-              <motion.svg
+              {showUnderline && (
+                <motion.svg
                 className="absolute -bottom-2 left-0 w-full"
                 viewBox="0 0 300 12"
                 initial={{ pathLength: 0, opacity: 0 }}
@@ -90,6 +119,7 @@ export default function Hero() {
                   </linearGradient>
                 </defs>
               </motion.svg>
+              )}
             </span>
           </motion.h1>
 

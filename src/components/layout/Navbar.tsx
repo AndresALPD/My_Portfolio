@@ -97,7 +97,7 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick('#home');
             }}
-            className="flex items-center gap-2 ml-12"
+            className="flex items-center gap-2 "
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -106,7 +106,7 @@ export default function Navbar() {
               alt="Logo"
               width={50}
               height={50}
-              className="rounded-full ring-1 ring-blue-500/60 dark:ring-blue-400/60 ring-offset-0"
+              className="w-10 h-10 lg:w-[50px] lg:h-[50px] rounded-full ring-1 ring-blue-500/60 dark:ring-blue-400/60 ring-offset-0"
               priority
             />
           </motion.a>
