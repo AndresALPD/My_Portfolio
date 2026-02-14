@@ -71,7 +71,7 @@ const translations: Record<Language, Record<string, string>> = {
     // ── Hero ──
     'hero.badge': 'Disponible para nuevos proyectos',
     'hero.greeting': 'Hola, soy ',
-    'hero.typewriter.1': 'Desarrollador de Software',
+    'hero.typewriter.1': 'Desarrollador Backend',
     'hero.typewriter.2': 'Creador de experiencias digitales',
     'hero.typewriter.3': 'Apasionado por la tecnología',
     'hero.typewriter.4': 'Resolviendo problemas con código',
@@ -79,7 +79,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.cv': 'Descargar CV',
     'hero.findme': 'Encuéntrame en:',
     'hero.scroll': 'Scroll',
-    'hero.bio': 'Desarrollador de Software · Backend / Full Stack | Ingeniero en Sistemas. Especialista en .NET y Java para el desarrollo de APIs REST y aplicaciones bajo arquitectura MVC. Con experiencia práctica en metodologías ágiles, control de versiones y buenas prácticas de desarrollo. Enfocado en aportar valor técnico y evolucionar profesionalmente en entornos desafiantes.',
+    'hero.bio': 'Desarrollador Backend enfocado en .NET y Java | Ingeniero en Sistemas. Construyo APIs REST y aplicaciones bajo arquitectura en capas utilizando ASP.NET Core y Spring Boot. Experiencia en integración frontend-backend, seguridad, control de versiones con Git y trabajo bajo metodologías ágiles, con capacidad para desempeñarme en entornos Full Stack.',
 
     // ── About ──
     'about.badge': 'Conóceme',
@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.subtitle': 'Desarrollador apasionado por crear soluciones digitales innovadoras',
     'about.englishLevel': 'Nivel de Inglés',
     'about.age': 'Años de Edad',
-    'about.linkedinBio': 'Ingeniero en Sistemas (en proceso de titulación) y Desarrollador de Software.\n\nEspecializado en la creación de soluciones robustas con .NET y Java. Cuento con experiencia sólida desarrollando APIs REST, arquitecturas en capas y gestión de bases de datos relacionales. Mi enfoque principal es construir software escalable, integrando lógica de negocio eficiente y patrones de diseño como MVC.\n\nApasionado por las buenas prácticas y el aprendizaje continuo, busco mi primera oportunidad profesional para aportar valor técnico y seguir evolucionando en entornos de alto nivel.',
+    'about.linkedinBio': 'Soy Ingeniero en Sistemas con enfoque en desarrollo backend utilizando ASP.NET Core y Spring Boot. He desarrollado APIs REST aplicando arquitectura en capas y patrón MVC, gestionando bases de datos como SQL Server e implementando buenas prácticas de seguridad como hashing con BCrypt. He participado en el desarrollo de un sistema de gestión para un cliente real y en un hackathon internacional de Oracle, integrando backend con modelos de Machine Learning en un entorno ágil. También cuento con experiencia en integración frontend-backend, lo que me permite desempeñarme en entornos Full Stack cuando el proyecto lo requiere.',
     'about.cta.cv': 'Descargar CV',
     'about.cta.contact': 'Contáctame',
     'about.spec.frontend': 'Desarrollo Frontend',
@@ -99,7 +99,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.spec.cloud.desc': 'OCI, Docker, Firebase, Git, GitHub',
     'about.spec.database': 'Bases de Datos',
     'about.spec.database.desc': 'SQL Server, MySQL, PostgreSQL, MongoDB',
-    'about.role': 'Desarrollador de Software',
+    'about.role': 'Desarrollador Backend',
     'about.stat.1.label': 'Años de Experiencia Académica',
     'about.stat.2.label': 'Proyectos Completados',
     'about.stat.3.label': 'Certificados Relevantes',
@@ -214,7 +214,7 @@ const translations: Record<Language, Record<string, string>> = {
     // ── Hero ──
     'hero.badge': 'Available for new projects',
     'hero.greeting': 'Hi, I\'m ',
-    'hero.typewriter.1': 'Software Developer',
+    'hero.typewriter.1': 'Backend Developer',
     'hero.typewriter.2': 'Digital experience creator',
     'hero.typewriter.3': 'Passionate about technology',
     'hero.typewriter.4': 'Solving problems with code',
@@ -222,7 +222,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.cv': 'Download CV',
     'hero.findme': 'Find me on:',
     'hero.scroll': 'Scroll',
-    'hero.bio': 'Software Developer · Backend / Full Stack | Systems Engineer. Specialized in .NET and Java for building REST APIs and applications with MVC architecture. Experienced in agile methodologies, version control, and development best practices. Focused on adding technical value and growing professionally in challenging environments.',
+    'hero.bio': 'Backend developer focused on .NET and Java | Systems Engineer. I build REST APIs and applications under layered architecture using ASP.NET Core and Spring Boot. Experience in frontend-backend integration, security, version control with Git, and working under agile methodologies, with the ability to perform in Full Stack environments.',
 
     // ── About ──
     'about.badge': 'Get to Know Me',
@@ -231,7 +231,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.subtitle': 'Developer passionate about creating innovative digital solutions',
     'about.englishLevel': 'English Level',
     'about.age': 'Years Old',
-    'about.linkedinBio': 'Systems Engineer (in the process of obtaining degree) and Software Developer.\n\nSpecialized in building robust solutions with .NET and Java. I have solid experience developing REST APIs, layered architectures, and managing relational databases. My main focus is building scalable software, integrating efficient business logic and design patterns like MVC.\n\nPassionate about best practices and continuous learning, I am seeking my first professional opportunity to add technical value and continue evolving in high-level environments.',
+    'about.linkedinBio': 'I am a Systems Engineer specializing in backend development using ASP.NET Core and Spring Boot. I have developed REST APIs applying layered architecture and MVC patterns, managing databases such as SQL Server, and implementing security best practices such as hashing with BCrypt. I have participated in the development of a management system for a real client and in an international Oracle hackathon, integrating backend with Machine Learning models in an agile environment. I also have experience in frontend-backend integration, which allows me to work in full stack environments when the project requires it.',
     'about.cta.cv': 'Download CV',
     'about.cta.contact': 'Contact Me',
     'about.spec.frontend': 'Frontend Development',
@@ -242,7 +242,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.spec.cloud.desc': 'OCI, Docker, Firebase, Git, GitHub',
     'about.spec.database': 'Databases',
     'about.spec.database.desc': 'SQL Server, MySQL, PostgreSQL, MongoDB',
-    'about.role': 'Software Developer',
+    'about.role': 'Backend Developer',
     'about.stat.1.label': 'Years of Academic Experience',
     'about.stat.2.label': 'Completed Projects',
     'about.stat.3.label': 'Relevant Certifications',
