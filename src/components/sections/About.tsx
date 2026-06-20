@@ -197,8 +197,8 @@ export default function About() {
             {/* Botones de acción */}
             <div className="flex flex-wrap gap-4 pt-4">
               <motion.a
-                href="/AndresAlpizar_BackendDeveloper_2026.pdf"
-                download="AndresAlpizar_BackendDeveloper_2026.pdf"
+                href="/AndresAlpizar_BackendDeveloper_CV_2026.pdf"
+                download="AndresAlpizar_BackendDeveloper_CV_2026.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-shadow"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
